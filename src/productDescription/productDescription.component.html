@@ -1,0 +1,108 @@
+<!-- ------------------Navigation Menu----------------- -->
+<app-menu></app-menu>
+
+<!-- -------------------------Product Description----------------------- -->
+
+<div class="productsDescriptionBox">
+    <div class="ProductDescriptionSection">
+        <div class="btn" routerLink="/products"> <i class="fa-solid fa-arrow-left"></i> Back</div>
+    </div>
+    <div class="productGrid productgrid-two-columns">
+        <div class="productImage productDec">
+            <div class="mainImageDiv">
+                <img src="../assets/images/{{finalProduct.Image}}" alt="" class="mainimg">
+            </div>
+            <!-- <div class="productImageGrid grid-four-columns">
+                <div class="image1" onmouseover="swipeImage(this)">
+                    <img src="images/ProductDetails/mainImageThumbsup.png" id="smallimg4">
+                </div>
+                <div class="image1" onmouseover="swipeImage(this)">
+                    <img src="images/ProductDetails/submainImageThumbsup1.png" id="smallimg1">
+                </div>
+                <div class="image1" onmouseover="swipeImage(this)">
+                    <img src="images/ProductDetails/submainImageThumbsu2.png" id="smallimg2">
+                </div>
+                <div class="image1" onmouseover="swipeImage(this)">
+                    <img src="images/ProductDetails/submainImageThumbsu3.png" id="smallimg3">
+                </div>
+            </div> -->
+
+            <div class="buyAddCart">
+                <a href="cart.html">
+                    <div class="addToCart">
+                        <i class="fa-solid fa-cart-shopping"> CART </i>
+                    </div>
+                </a>
+                <div class="buy addToCart">
+                    <i class="fa-solid fa-cart-shopping"> Buy Now </i>
+                </div>
+            </div>
+        </div>
+
+        <div class="productDescription">
+            <h3>{{finalProduct.title}}</h3>
+            <div class="productRatings">
+                <div class="ratings">
+                    <span class="rating">{{finalProduct.rating}}<i class="fa-solid fa-star fa-xs"></i></span>
+                    <span> {{finalProduct.ratingCount}} Ratings </span>
+                </div>
+                <div class="productCostData">
+                    <h4>Special Price</h4>
+                    <div class="productDiscounts">
+                        <p class="productRate"> {{finalProduct.originalAmount|currency:'INR'}} <span>
+                                <s>{{finalProduct.discounted|currency:'INR'}}</s> <small>{{finalProduct.offerPercentage}}</small> </span> </p>
+                        <!-- <p id="clock"></p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="discounts">
+                <p>&#9200;</p>
+                <ul>
+                    <li *ngIf="finalProduct.id==='2'"><b>Expiry Date </b> 30 Nov 2022</li>
+                    <li><b> Manufactured date</b> 03 Aug 2022</li>
+                </ul>
+            </div>
+
+            <div class="delivery">
+                <h4>Delivery</h4>
+                <i class="fa-sharp fa-solid fa-location-dot"></i> <input type="number" placeholder="Enter your Pincode">
+                <span class="check"> check </span>
+            </div>
+            <div class="delivery quantitySelection" *ngIf="finalProduct.alt==='beverges'">
+                <h4>Quantity</h4>
+                <div class="quantityData quantityActive">
+                    <b> {{finalProduct.Quantity}}, Plastic Bottle </b>
+                    <div class="quantity"> <small> {{finalProduct.originalAmount/2}}/L </small> </div>
+                </div>
+                <div class="quantityData">
+                    <b> 1L, Plastic Bottle </b>
+                    <div class="quantity"> <small>{{finalProduct.originalAmount/4}}/0.5L </small> </div>
+                </div>
+            </div>
+
+            <div class="aboutProductsgrid Products-two-columns">
+                <div class="aboutProducts">
+                    <h3>More Info</h3>
+                    <hr>
+                    <div class="aboutProductsgrid aboutProducts-two-columns">
+                        <div class="info">
+                            <p> <b>Product</b> </p>
+                            <p> <b>Category</b> </p>
+                            <p> <b>Quantity</b> </p>
+                            <p *ngIf="finalProduct.alt==='beverges'"> <b>Expires</b> </p>
+
+                        </div>
+                        <div class="data">
+                            <p> {{finalProduct.title}} </p>
+                            <p> {{finalProduct.alt}} </p>
+                            <p> {{finalProduct.Quantity}} </p>
+                            <p *ngIf="finalProduct.alt==='beverges'"> 4 Months from Packing </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

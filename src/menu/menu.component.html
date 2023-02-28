@@ -1,0 +1,72 @@
+<div class="menuBox">
+  <nav class="menu">
+    <a routerLink="">
+        <h2>RK <span> MART </span></h2>
+    </a>
+
+    <ul>
+        <li> <a routerLink="" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" > <i class="fa-solid fa-house"></i>Home </a></li>
+
+        <li> <a routerLink="/products" [routerLinkActive]="'active'"> <i class="fa-solid fa-bag-shopping"></i>Products </a>
+
+            <div class="submenu">
+                <ul>
+                    <a routerLink="/products">
+                        <li> <span id="alignMenu"> <i class="fa-solid fa-basket-shopping"></i>Grocery <i
+                                    class="fas fa-caret-right"></i></span>
+
+                            <div class="submenu2">
+                                <ul>
+                                    <li> <span id="subMenuAlign"> <i class="fa-solid fa-pepper-hot"></i>Fresh
+                                            Vegetables </span></li>
+                                    <li> <span id="subMenuAlign"> <i class="fa-solid fa-apple-whole"></i>Fresh
+                                            Fruits </span></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                    </a>
+                    <a routerLink="/products">
+                        <li> <span id="alignMenu"> <i class="fa-solid fa-bottle-water"></i>Beverges <i
+                                    class="fas fa-caret-right"></i></span>
+
+                            <div class="submenu2">
+                                <ul>
+                                    <li> <span id="subMenuAlign"> <i class="fa-solid fa-bottle-droplet"></i>Soft
+                                            Drinks </span> </li>
+                                    <li> <span id="subMenuAlign"> <i class="fa-solid fa-wine-bottle"></i>Soft Drinks
+                                            Can </span> </li>
+                                    <li> <span id="subMenuAlign"> <i
+                                                class="fa-solid fa-martini-glass-citrus"></i>Energy Drinks </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>
+                    </a>
+                    <a routerLink="/products">
+                        <li> <span id="alignMenu"> <i class="fa-solid fa-door-open"></i>Household <i
+                                    class="fas fa-caret-right"></i></span>
+
+                            <div class="submenu2">
+                                <ul>
+                                    <li><span id="subMenuAlign"> <i class="fa-solid fa-couch"></i>Home Utensils
+                                        </span> </li>
+                                    <li><span id="subMenuAlign"> <i class="fa-solid fa-utensils"></i>Kitchen
+                                            Utensils </span> </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </li>
+        <li> <a routerLink="contactUs" [routerLinkActive]="'active'"> <i class="fa-solid fa-address-book"></i>Contact </a> </li>
+        <button id="btn" class="login"> <i class="fa-solid fa-user"></i> Login </button>
+
+        <div id="mainPageCart">
+            <a routerLink="/cart"> <i class="fa-sharp fa-solid fa-cart-shopping"></i> </a>
+        </div>
+    </ul>
+</nav>
+</div>
