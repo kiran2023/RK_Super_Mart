@@ -12,4 +12,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  redirectToMap(){
+    window.open("https://goo.gl/maps/Xh3yJtKUUQozvtAr8","_blank");
+  }
+
 }

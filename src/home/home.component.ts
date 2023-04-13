@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ProductsDataService } from 'src/productsData.service';
 
 @Component({
   selector: 'app-home',
@@ -7,24 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   popUp: any;
-  constructor() { 
-   
+  products: any = "";
+
+  groceryProduct: any = [];
+  beveragesProduct: any = [];
+  householdProduct: any = [];
+
+  public myMath = Math;
+  constructor(private data: ProductsDataService, private http: ProductsDataService, private titleService: Title) {
+
   }
-  closeOffer(){
-    const $offerData:any = document.querySelector('.popupMsg');
+  closeOffer() {
+    const $offerData: any = document.querySelector('.popupMsg');
     $offerData.close();
   }
 
   ngOnInit() {
-    setTimeout(function pop(){
-      const $offerData:any = document.querySelector('.popupMsg');
-      $offerData.showModal();
-    }, 5000);
+    this.data.getProducts().subscribe(product => this.products = product)
+    this.titleService.setTitle('Home | RK MART');
 
-  //   setInterval(() => {
-  //     const $offerData:any = document.querySelector('.popupMsg');
-  //      $offerData.showModal();
-  //  }, 2000);
+    this.data.getProducts().subscribe((productData: any) => {
+      for (let product of productData) {
+        if (product.category == "grocery") {
+          this.groceryProduct.push(product);
+        }
+        if (product.category == "beverages") {
+          this.beveragesProduct.push(product);
+        }
+        if (product.category == "household") {
+          this.householdProduct.push(product);
+        }
+      }
+    });
+
+    // setTimeout(function pop(){
+    //   const $offerData:any = document.querySelector('.popupMsg');
+    //   $offerData.showModal();
+    // },3000);
+
   }
 }
 

@@ -1,2209 +1,584 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  a{
-    color: inherit;
-  }
-  
-  /* -----------------------REUSABLE CODE----------------------- */
-  
-  :root {
-    --box-shadow: -1px 6px 16px -1px rgba(8, 8, 8, 1);
-    --btns-background: rgb(29, 106, 193);
-    --white: #fff;
-    --black: #000000;
-    --font-hover: rgb(244, 240, 240);
-    --background-hover: rgba(19, 110, 29, 0.697);
-  }
-  
-  .grid-four-columns{
-    grid-template-columns: repeat(4,1fr);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  color: none;
+}
+
+body{
+  background-color: rgb(253, 255, 253);
+}
+
+/* -----------------------REUSABLE CODE----------------------- */
+
+:root {
+  --box-shadow: -1px 6px 16px -1px rgba(8, 8, 8, 1);
+  --btns-background: rgb(29, 106, 193);
+  --white: #fff;
+  --black: #000000;
+  --font-hover: rgb(244, 240, 240);
+  --background-hover: rgba(19, 110, 29, 0.697);
+}
+
+section {
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 140rem;
+}
+
+.grid-section {
+  display: grid;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.grid-two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four-columns {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-five-columns {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-two-section {
+  grid-template-columns: 25% 75%;
+  position: relative;
+  top: 6rem;
+}
+
+i {
+  padding-right: 0.4rem;
+}
+
+.common-heading {
+  font-size: 2rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.common-heading::before {
+  content: "";
+  position: absolute;
+  top: 108%;
+  bottom: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--btns-background);
+  border-radius: 50%;
+}
+
+.common-heading::after {
+  content: "";
+  position: absolute;
+  top: 120%;
+  width: 5rem;
+  height: 0.2rem;
+  left: 0.6rem;
+  background: var(--btns-background);
+  margin-bottom: 3px solid red;
+}
+
+.container-sales {
+  background-color: var(--white);
+  padding: 2rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------- */
+
+input,
+button, select, textarea {
+  border: 0.1rem solid var(--btns-background);
+}
+
+.button {
+  margin: 2rem 0;
+}
+
+.btns {
+  width: 10rem;
+  padding: 1rem;
+  background-color: rgb(83, 101, 161);
+  border-radius: 1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.btns>a {
+  color: var(--white);
+}
+
+.btns:hover {
+  background-color: var(--btns-background);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+.btn {
+  outline: solid 0.1rem var(--btns-background);
+  background: var(--white);
+  color: var(--black);
+  font-weight: 900;
+  border: none;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  width: max-content;
+  margin: 0.8rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnD {
+  background: var(--btns-background);
+  color: var(--white);
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  width: max-content;
+}
+
+.btn:hover {
+  background: var(--btns-background);
+  color: var(--white);
+}
+
+.price-box {
+  padding: 0.4rem;
+}
+
+/* ------------------------------Sales Section-------------------------------------- */
+
+
+.grid-sales {
+  display: grid;
+  padding: 0 1rem;
+  background: var(--white);
+}
+
+.grid-sales-two-columns {
+  grid-template-columns: 20% 80%;
+}
+
+.grid-sales-four-column {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sales-image {
+  display: grid;
+  place-items: center;
+  border-right: 2px solid var(--btns-background);
+}
+
+.sales-image img {
+  width: 100%;
+}
+
+/* NUMBER OF PRODUCTS DISPALYING */
+
+.productsCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.productsCount p {
+  color: rgb(31, 79, 142);
+  font-weight: 600;
+  font-size: 1.4rem;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.valid {
+  border: 1px solid green;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.scrollToTop {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  z-index: 1;
+}
+
+.scrollBtn {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  background-color: var(--btns-background);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 40%;
+  cursor: pointer;
+  animation: animateScroll 3s linear infinite;
+}
+
+.scrollActive {
+  display: none;
+}
+
+@keyframes animateScroll {
+  0% {
+    border-radius: 118px 119px 156px 200px;
   }
 
-  .grid-section{
-    display: grid;
+  50% {
+    border-radius: 136px 88px 183px 162px;
   }
 
-  .menuBox{
-    position: relative;
+  100% {
+    border-radius: 118px 119px 156px 200px;
   }
+}
 
-  .grid-two-section{
-    grid-template-columns: 25% 75%;
-    position: relative;
-    top: 6rem;
-  }
-  
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    color: none;
-  }
-  
-  /* .menu ul .active {
-    background: var(--btns-background);
-    color: var(--white);
-    border-radius: 1rem;
-    padding: 1rem;
-  }
-  
-  .menu ul .active > #alignMenu {
-    color: var(--white);
-  }
-  
-  .menu ul .active a {
-    color: var(--white);
-  }
-  
-  .menu ul .active {
-    background: var(--btns-background);
-  }
-  
-  .menu ul .active .submenu li:hover a {
-    color: var(--white);
-  } */
-  
-  .grid {
-    display: grid;
-    gap: 3rem;
-  }
-  
-  section {
-    padding: 2rem 0;
-  }
-  
-  .productSection {
-    margin-left: 20rem;
-  }
-  
-  .searchBox input {
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: 1px solid var(--btns-background);
-    padding: 0.6rem;
-    margin: 1rem 2rem 0 0;
-    border-radius: 1rem;
-  }
-  
-  input, button{
-    border: 1px solid var(--btns-background);
-  }
-  
-  
-  .searchBox{
-    position: relative;
-    display: flex;
-  }
-  
-  #filterPrice{
-    position: absolute;
-    right: 15rem;
-    margin: 1rem;
-  }
-  
-  .container {
-    max-width: 140rem;
-    /* padding: 0 4rem; */
-  }
-  
-  .grid-two-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .grid-three-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .grid-four-columns {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .grid-five-columns {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  
-  .cart,
-  #mainPageCart {
-    margin: auto 0;
-    font-weight: 900;
-    position: relative;
-  }
-  
-  .cart .fa-cart-shopping,
-  #mainPageCart .fa-cart-shopping {
-    font-size: 1.8rem;
-  }
-  
-  .cart::after {
-    content: attr(current-count);
-    position: absolute;
-    top: 0;
-    transform: translateY(-0.4rem);
-    right: 0;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.6rem;
-    color: var(--white);
-  }
-  
-  .figCaptionDiv{
-    min-height: 3rem;
-    text-align: center;
-    color: var(--black);
-  }
-  
-  .button {
-    margin: 2rem 0;
-  }
-  
-  .btns {
-    width: 10rem;
-    padding: 1rem;
-    background-color: rgb(83, 101, 161);
-    border-radius: 1rem;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  .btns > a {
-    color: var(--white);
-  }
-  
-  .btns:hover {
-    background-color: var(--btns-background);
-  }
-  
-  .fproduct a {
-    text-decoration: none;
-  }
-  
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-  
-  input[type="number"] {
-    appearance: textfield;
-  }
-  
-  /* NUMBER OF PRODUCTS DISPALYING */
-  
-  .productsCount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .productsCount p {
-    color: rgb(31, 79, 142);
-    font-weight: 600;
-    font-size: 1.4rem;
-    position: relative;
-    padding-right: 2rem;
-  }
-  
-  .valid {
-    border: 1px solid green;
-  }
-  
-  .invalid {
-    border: 1px solid red;
-  }
-  
-  .scrollToTop{
-    position: fixed;
-    right: 2%;
-    bottom: 5%;
-    z-index: 1;
-  }
-  
-  .scrollBtn{
-     width: 3rem;
-     height: 3rem;
-     font-size: 1.2rem;
-     background-color: var(--btns-background);
-     color: var(--white);
-     padding: 1rem;
-     border-radius: 40%;
-     cursor: pointer;
-     animation: animateScroll 3s linear infinite;
-  }
-  
-  .scrollActive{
-    display: none;
-  }
-  
-  @keyframes animateScroll{
-     0%{
-        border-radius: 118px 119px 156px 200px;
-     }
-     50%{
-       border-radius: 136px 88px 183px 162px;
-     }
-     100%{
-      border-radius: 118px 119px 156px 200px;
-     }
-  }
-  
-  
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: inherit;
-    font-size: 18px;
-    background: #fff;
-   
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 5rem;
-    object-fit: cover;
-  }
+/* Shipping Section */
 
-  /* ----------------------------------Error Page section--------------------------------- */
-  .errorComponent .errorImage{
-     width: 100%;
-  }
+:is(.shippingBox, .shipmentSection, .paymentSection ) .btn{
+  font-weight: 700;
+}
 
-  
-  /* ---------------------------------Pop Up Offer Modal------------------------------- */
-  .offerPopUp{
-    background-color: var(--white);
-    width: 30rem;
-    height: 25rem;
-    border-radius: 10%;
-  }
-  
-  .popupMsg > a{
-    color: inherit;
-  }
-  
-  .popupMsg{
-    margin: auto;
-    background: none;
-    border: none;
-  }
-  
-  .popupMsg::backdrop{
-    background: #111111;
-    opacity: 0.6;
-  }
-  
-  .popupMsg .offerImage img{
-     width: 100%;
-     height: 15rem;
-     background-image: cover;
-  }
-  
-  .offerPopUp .offerContent{
-      padding: 1rem;
-      font-weight: 900;
-  } 
-  
-  .offerContent{
-    display: grid;
-    place-items: center;
-  }
-  
-  .offerPopUp .btn a{
-    color: inherit;
-    margin: 1.5rem 0;
-  }
-  
-  .offerPopUp #offerPercentage{
-     color: var(--btns-background);
-     font-weight: 900;
-     padding: 0.4rem;
-     border-radius: 1rem;
-  }
-  
-  .popupMsg .popupClose{
-    position: absolute;
-    top: 15px;
-    right: 14px;
-    padding: 0.4rem;
-    border-radius:50% ;
-    transition: all 0.3s linear;
-  }
-  
-  .fa-xmark{
-    border-radius:50%;
-    padding: 0.6rem;
-    transition: all 0.3s linear;
-  }
-  
-  .popupMsg .popupClose:hover, .fa-xmark:hover{
-    background-color: var(--btns-background);
-    color: var(--white);
-  }
+:is(.shippingBox, .shipmentSection, .paymentSection ) .btn:hover{
+  background: var(--btns-background);
+  color: var(--white);
+}
 
-  .errorComponent{
-      width: 100vw;
-      height: 100vh;
-      display: grid;
+/* ---------------------------------Pop Up Offer Modal------------------------------- */
+.offerPopUp {
+  background-color: var(--white);
+  width: 30rem;
+  height: 25rem;
+  border-radius: 10%;
+}
 
-      place-items: center;
-  }
-  
-  
-  /* ------------------------------Sales Section - Home-------------------------------------- */
-  .container-sales{
-    background-color: var(--white);
-    padding: 2rem;
-    margin: 0 0.2rem;
-    cursor: pointer;
-  }
-  
-  .grid-sales{
-    display: grid;
-    padding: 0 1rem;
-    background: var(--white);
-  }
-  
-  .grid-sales-two-columns{
-    grid-template-columns: 20% 80%;
-  }
-  
-  .grid-sales-four-column{
-    grid-template-columns: repeat(4,1fr);
-  }
-  
-  .sales-image{
-    display: grid;
-    place-items: center;
-    border-right: 2px solid var(--btns-background);
-  }
-  
-  .sales-image img{
-      width: 100%;
-  }
-  
-  .common-heading{
-    font-size: 2rem;
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  
-  .common-heading::before{
-    content: "";
-    position: absolute;
-    top: 108%;
-    bottom: 0;
-    width: 0.8rem;
-    height: 0.8rem;
-    background: var(--btns-background);
-    border-radius: 50%;
-  }
-  
-  .common-heading::after{
-    content: "";
-    position: absolute;
-    top: 120%;
-    width: 5rem;
-    height: 0.2rem;
-    left: 0.6rem;
-    background: var(--btns-background);
-    margin-bottom: 3px solid red;
-  }
-  
-  /*------------------------------------- ADD BUTTON ON PRODUCTS---------------------------- */
-  
-  .addButton {
-    font-size: 1rem;
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-  }
-  
-  /* ------------------------MAIN DATA--------------------- */
-  
-  h1 {
-    font-size: 3rem;
-    color: rgb(191, 53, 53);
-    margin-bottom: 1rem;
-  }
-  
-  .main {
-    margin: 2rem;
-  }
-  
-  .main-data {
-    margin: auto;
-  }
-  
-  #main-heading,
-  .featured-products h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: rgb(164, 41, 41);
-    font-weight: 900;
-  }
-  
-  #main-para {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    text-align: justify;
-    font-weight: 500;
-  }
-  
-  main {
-    margin: 0 10rem;
-    padding-top: 8rem;
-    height: 30rem;
-  }
-  
-  .main-image img {
-    max-width: 100%;
-    height: 100%;
-    box-shadow: 2px 3px 18px -4px rgb(28, 21, 166);
-    border-radius: 3rem;
-  }
-  
-  .productBoxMain{
-    position: relative;
-    width: 100%;
-    height: 18rem;
-    padding: 1.2rem;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  /* -------------------MENU BAR------------------------ */
-  
-  span {
-    color: rgb(8, 5, 97);
-  }
-  
-  .menu h2 {
-    margin-right: 2rem;
-    color: rgb(191, 53, 53);
-  }
-  
-  .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 6rem;
-    background-color: rgb(189, 201, 213);
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-  }
-  
-  #alignMenu {
-    display: grid;
-    grid-template-columns: 20% 70% 10%;
-  }
-  
-  #alignMenu i {
-    text-align: center;
-  }
-  
-  #subMenuAlign {
-    display: grid;
-    grid-template-columns: 18% 80%;
-  }
-  
-  .menu ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  button a {
-    text-decoration: none;
-  }
-  
-  .menu ul li,
-  button {
-    padding: 1rem;
-    font-size: 1.2rem;
-    position: relative;
-  }
+.popupMsg>a {
+  color: inherit;
+}
 
-  .menu ul li .active{
-    padding: 1rem;
-  }
-  
-  .menu ul button {
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.6rem;
-    margin: auto 1rem;
-  }
-  
-  .menu ul button a {
-    color: #000000;
-  }
-  
-  .menu ul button:hover {
-    color: var(--font-hover);
-    background-color: var(--btns-background);
-    transition: all 0.2s linear;
-  }
-  
-  .menu ul button:hover > a, .menu ul li:hover a  {
-    color: var(--font-hover);
-  }
-  
-  .menu ul li:hover, .active {
-    background-color: var(--btns-background);
-    color: var(--white);
-    transition: all 0.3s linear;
-  }
-  
-  .submenu {
-    display: none;
-    transition: all 0.2s linear;
-    z-index: 1;
-    cursor: pointer;
-  }
-  
-  .menu .submenu ul li:hover #alignMenu,
-  .submenu2 ul li:hover #subMenuAlign {
-    color: var(--white);
-    transition: all 0.5s linear;
-  }
-  
-  .menu ul li:hover .submenu {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 100%;
-  }
-  
-  .submenu ul {
-    display: block;
-    margin: 1rem;
-    color: black;
-    background-color: rgb(162, 172, 184);
-    border-radius: 5%;
-  }
-  
-  .submenu ul li {
-    width: 14.2rem;
-    padding: 1rem;
-    margin: 0.4rem;
-    color: black;
-  }
-  
-  .submenu2 {
-    display: none;
-    z-index: 1;
-    cursor: pointer;
-  }
-  
-  .submenu2 ul li {
-    width: 14rem;
-  }
-  
-  .submenu ul li:hover .submenu2 {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    left: 14.2rem;
-    color: black;
-    background-color: rgb(162, 172, 184);
-    border-radius: 5%;
-  }
-  
-  .fas {
-    float: right;
-  }
-  
-  .menu input {
-    text-align: center;
-    border-radius: 1.8rem;
-    font-size: 1rem;
-  }
-  
-  i {
-    padding-right: 0.4rem;
-  }
-  
-  #searchicon {
-    position: absolute;
-    top: 2.5rem;
-    padding-left: 31rem;
-  }
-  
-  /* ----------------------------------CONTACT US----------------------------- */
-  .contact-section {
-    width: 100%;
-    padding: 2rem;
-    padding-top: 8rem;
-  }
-  
-  .contact-section h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-section .map {
-    margin-bottom: 4rem;
-  }
-  
-  .contact-section form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .contact-section form input,
-  .contact-section form textarea {
-    padding: 1rem 3rem;
-    border-radius: 1rem;
-    border: 2px solid rgb(47, 81, 203);
-    margin: 1rem;
-    width: 100%;
-  }
-  
-  .contact-section .submitbtn {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-  
-  .contact-section button {
-    padding: 1rem 2rem;
-    border-radius: 0.8rem;
-  }
-  
-  .contact-section button:hover {
-    color: rgb(244, 240, 240);
-    background-color: rgba(19, 110, 29, 0.697);
-    transition: all 0.5s linear;
-  }
-  
-  /* ------------------------------------------MAIN PAGE--------------------------------- */
-  
-  .featured-products h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-  
-  .fproduct {
-    display: flex;
-    justify-content: center;
-    place-content: center;
-    margin: 0 10rem;
-    max-width: 70rem;
-  }
-  
-  /* --------------------------------- PRODUCT PAGE LEFT SIDE DATA------------------------------- */
-  
-  aside {
-    display: flex;
-    flex-direction: column;
-    min-width: 18.5rem;
-    max-height: 70vh;
-    overflow-y: scroll;
-    padding: 1.5rem;
-    line-height: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  aside li {
-    list-style: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  aside .category ul li:hover {
-    color: rgb(244, 240, 240);
-    background-color: rgba(19, 110, 29, 0.697);
-    border-radius: 10%;
-    transition: all 0.5s linear;
-    font-weight: 400;
-    text-align: center;
-  }
-  
-  aside div {
-    margin-bottom: 1rem;
-  }
-  
-  .price #value {
-    color: rgb(230, 15, 15);
-  }
-  
-  /* CATEGORY FILTRATION */
-  
-  .category-not-matched {
-    display: none;
-  }
-  
-  /* ------------------------------ PRODUCTS FILTRATION -------------------------------- */
-  
-  .product-not-active {
-    display: none;
-  }
-  
-  .product-active {
-    display: none;
-  }
-  
-  /* ------------------------------DISPLAYING PRODUCTS-------------------------------- */
-  
-  .video {
-    margin: 4rem;
-  }
-  
-  /* ----------------------------footer----------------------------- */
-  footer {
-    width: 100%;
-    height: 20rem;
-    background-color: rgb(48, 73, 90);
-    color: rgb(241, 241, 247);
-    padding: 6rem;
-    position: absolute;
-  }
-  
-  .footer {
-    font-size: 1.2rem;
-    font-weight: 900;
-  }
-  
-  .about p, .footerData ul {
-    line-height: 1.3rem;
-    text-align: justify;
-    color: var(--white);
-    margin-top: 0.8rem;
-  }
-  
-  footer ul li {
-    line-height:1.8rem;
-  }
-  
-  .about span {
-    color: rgb(215, 148, 215);
-  }
-  
-  footer hr {
-    margin: 1rem 0;
-  }
-  
-  :is(.categories, .quick-links, .contact, .Address) li {
-    list-style: none;
-  }
-  
-  :is(.categories, .quick-links, .contact, .Address) li a {
-    line-height: 1.5rem;
-    text-decoration: none;
-    color: var(--white);
-    transition: all 0.6s ease-in-out;
-  }
-  
-  :is(.categories, .quick-links, .contact, .Address) li a:hover {
-    color: var(--white);
-    font-weight: 800;
-    background-color: var(--btns-background);
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.4rem;
-    padding-left: 0.6rem;
-  }
-  
-  /* -----------------------------------------BEVERGES PAGE-------------------------------- */
-  
-  /* Beverges Page Reusable code */
-  
-  :root {
-    --productbuy: rgb(24, 154, 63);
-    --rating: rgb(24, 154, 63);
-    --grey: #878787;
-  }
-  
-  main {
-    height: 100%;
-  }
-  
-  .mainData {
-    position: relative;
-  }
-  
-  /* ASIDE BEVERGES */
-  
-  /* .bevergeSection aside,
-  .householdProducts aside {
-      display: flex;
-      flex-direction: column;
-      width: 18rem;
-      padding: 1.5rem;
-      line-height: 1.8rem;
-      max-height: 80vh;
-  } */
-  
-  /* Category Section */
-  
-  .categoryData h2 {
-    padding: 0.5rem 0;
-  }
-  
-  .categoryData h5,
-  .price {
-    padding: 0.5rem 0;
-    text-transform: uppercase;
-  }
-  
-  .categoryDetails a {
-    color: var(--grey);
-    text-decoration: none;
-  }
-  
-  .mainDivison .categoryData .brands i {
-    position: absolute;
-  }
-  
-  .mainDivison .categoryData .brands input {
-    outline: 0;
-    border-width: 0 0 0.1rem;
-  }
-  
-  /* ACCORDIN SECTION */
-  
-  .accordinInput {
-    display: none;
-  }
-  
-  .discountData {
-    display: none;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  .accordinLabel {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .accordinLabel i {
-    margin: auto 0;
-  }
-  
-  .accordinInput:checked ~ .discountData {
-    display: block;
-  }
-  
-  .reviewStar {
-    color: var(--btns-background);
-  }
-  
-  /* ------------------------------------Beverges Page Starts---------------------------- */
-  /* .productsDiv{
-      width: 100%;
-      height: 100%;
-      background-color: rgb(248, 246, 246);
-  } */
-  .mainDivison {
-    width: 100%;
-    background-color: rgb(248, 246, 246);
-    padding: 1rem;
-    padding-top: 3rem;
-  }
-  
-  .searchBox {
-    padding-top: 6rem;
-  }
-  
-  .categoryData {
-    max-width: 15%;
-    position: absolute;
-    cursor: pointer;
-    position: fixed;
-  }
-  
-  .categoryData aside {
-    background-color: var(--white);
-  }
-  
-  .clearSection {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  /* PRODUCT SECTION */
-  
-  .productsDiv {
-    background-color: var(--white);
-    cursor: pointer;
-  }
-  
-  .productGrid {
-    display: grid;
-  }
-  
-  .productBox {
-    position: relative;
-    width: 100%;
-    height: 21rem;
-    padding: 1.2rem;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  .productImage {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .productImage img {
-    height: 8rem;
-    max-width: 100%;
-  }
-  
-  .imagePosition{
-   display: flex;
-   justify-content: center;
-  }
-  
-  .productDec {
-    width: 100%;
-    height: 30rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 3rem;
-  }
-  
-  .productDetails {
-    margin-bottom: 0.5rem;
-  }
-  
-  .productPrice .rating {
-    background-color: var(--rating);
-    color: var(--white);
-    font-weight: 400;
-    font-size: 1rem;
-    padding: 2px 4px 2px 6px;
-    margin-right: 0.5rem;
-    border-radius: 0.4rem;
-  }
-  
-  .productPrice{
-    position: relative;
-  }
-  
-  .productPrice .ratings {
-    margin-bottom: 0.5rem;
-  }
-  
-  .productPrice s {
-    color: var(--grey);
-  }
-  
-  .productBox:hover, .productBoxMain:hover {
-    box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
-  }
-  .productBox:hover .figCaptionDiv{
-    color:var(--gradient);
-  }
-  .productBox:hover .fa-heart{
-    color: #Ff0000;
-  }
-  /* LOGIN FORM */
-  
-  /* --------------------------LOGIN DIV------------------- */
-  
-  .loginMain .grid {
-    display: grid;
-    gap: 2.5rem;
-  }
-  
-  .loginMain {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-  
-  .loginMain label {
-    margin-bottom: 0.4rem;
-    font-size: 1.2rem;
-  }
-  
-  .loginMain .login_Data input {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-  }
-  
-  .loginDiv {
-    width: 50%;
-    height: 30rem;
-    background-color: var(--para-tint);
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    border-radius: 2rem;
-  }
-  
-  .LoginImage {
-    position: absolute;
-  }
-  
-  .LoginImage img {
-    max-width: 250px;
-    height: 250px;
-  }
-  
-  .showpass {
-    display: flex;
-    position: relative;
-  }
-  
-  .showpass i {
-    position: absolute;
-    top: 15px;
-    right: 0;
-    padding: 0 0.5rem;
-    cursor: pointer;
-  }
-  
-  #eye {
-    display: none;
-  }
-  
-  :is(.login_Data .login-fields) #error1,
-  #error2 {
-    color: rgb(167, 9, 9);
-    padding: 0.2rem;
-    font-size: 0.8rem;
-    position: absolute;
-    font-weight: 600;
-  }
-  
-  .login_Data #succefulLogin,
-  .login_Data #successfulLogin2 {
-    color: rgb(17, 92, 17);
-    font-family: 600;
-    text-align: center;
-  }
-  
-  .login_Data .login-fields p small a {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1.2rem 0 0 0;
-    text-decoration: none;
-  }
-  
-  /* ---------------------LEFT SIDE------------------ */
-  
-  .login_Image {
-    background-color: var(--btns-background);
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 30rem;
-  }
-  
-  .loginMoto {
-    padding: 2rem 2rem 1rem 2rem;
-  }
-  
-  .loginMoto h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-  
-  .loginMoto p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.8rem;
-    color: var(--white);
-  }
-  
-  /* ----------------RIGHT SIDE------------- */
-  
-  .login_Data {
-    display: grid;
-    place-items: center;
-    margin-top: 5rem;
-  }
-  
-  .login-fields {
-    padding: 0.8rem;
-  }
-  
-  .login-fields label {
-    display: inline-block;
-    font-weight: 900;
-  }
-  
-  .login_Data form input {
-    width: 100%;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
-  
-  .login_Data .loginBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login_Data form button {
-    width: 50%;
-    height: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
-    transition: all 0.4s ease-in-out;
-  }
-  
-  .login_Data button:hover {
-    background-color: rgb(45, 145, 227);
-    color: var(--white);
-    font-weight: 400;
-  }
-  
-  .menu ul button:hover > a {
-    color: rgb(244, 240, 240);
-  }
-  
-  .newuser {
-    margin: 3rem 0;
-    color: rgb(30, 30, 222);
-    cursor: pointer;
-  }
-  
-  .newuser p a {
-    text-decoration: none;
-  }
-  
-  .close {
-    position: relative;
-    float: right;
-    margin: 2rem 1rem 0 0;
-  }
-  
-  .Loginmodal::backdrop,
-  .Registermodal::backdrop {
-    background: #111111;
-    opacity: 0.6;
-  }
-  
-  .Loginmodal,
-  .Registermodal,
-  .paymentModal,
-  .registerSuccessModal {
-    width: 100%;
-    margin: auto;
-    background: none;
-    border: none;
-  }
-  
-  #registered {
-    display: none;
-  }
-  
-  .close,
-  .RegisterClose {
-    cursor: pointer;
-  }
-  
-  /*-- ----------------------------------------Registration Section REUSABLE CODE SECTION -----------------------------------------------------*/
-  
-  :root {
-    --heading: rgb(0 10 45);
-    --para: #777;
-    --para-tint: #e4e4e4;
-    --gradient: linear-gradient(0deg, rgb(132 144 255) 0%, rgb(98 189 252) 100%);
-    --gradientSupport: -webkit-linear-gradient(
-      0deg,
-      rgb(132 144 255) 0%,
-      rgb(98 189 252) 100%
-    );
-  
-    --shadowSupport: 0px 20px 20px 0px rgb(132 144 255 / 30%);
-  }
-  
-  .RegistrationDiv .grid {
-    display: grid;
-    gap: 0.5rem;
-  }
+.popupMsg {
+  margin: auto;
+  background: none;
+  border: none;
+}
 
-  /*-- ----------------------------------------REGISTRATION SECTION -----------------------------------------------------*/
-  
-  .RegistrationDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    width: 100%;
-    height: 100%;
-    font-size: 10px;
-  }
-  
-  .RegisterBox {
-    background-color: var(--white);
-    width: 40%;
-    height: 100%;
-    border-radius: 1rem;
-    box-shadow: var(--shadowSupport);
-    border: 1px solid var(--heading);
-    position: relative;
-  }
-  
-  .RegistrationDiv .RegisterBox p {
-    color: rgb(167, 9, 9);
-    padding: 0.2rem;
-    font-size: 0.8rem;
-    position: absolute;
-    font-weight: 600;
-    max-width: 15rem;
-  }
-  
-  .RegisterBox .header {
-    background: var(--btns-background);
-    color: var(--white);
-    font-weight: 900;
-    padding: 1rem 0;
-  }
-  
-  .RegisterBox .header h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-  }
-  
-  .RegistrationDiv form {
-    padding: 0.8rem 1.2rem;
-    position: relative;
-  }
-  
-  form .form_fields {
-    margin: 0.4rem 0;
-  }
-  
-  form label {
-    display: inline-block;
-    font-size: 0.8rem;
-  }
-  
-  form input,
-  textarea {
-    width: 100%;
-    outline: none;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
-  
-  select {
-    padding: 0.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .btn {
-    outline: solid 0.1rem var(--btns-background);
-    background: var(--white);
-    color: var(--black);
-    font-weight: 900;
-    border: none;
-    padding: 1rem 1.2rem;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
-    width: max-content;
-    margin: 0.8rem 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .btn:hover{
-    background: var(--btns-background);
-    color: var(--white);
-  }
-  
-  .registerModalBtns {
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    flex-direction: column;
-    margin-top: 2rem;
-  }
-  
-  .btnD {
-    background: var(--btns-background);
-    color: var(--white);
-    border: none;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    font-size: 0.6rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
-    width: max-content;
-  }
-  
-  .addWishlistDiv {
-    display: flex;
-    margin: 0.5rem 0;
-    margin-bottom: 2rem;
-  }
-  
-  .addWishlistDiv .btnD{
-    position: absolute;
-    margin: 0 1.2rem;
-    left: 0;
-  }
-  
-  .addWishlistDiv p{
-    position: absolute;
-    margin: 0 1.2rem;
-    right: 0;
-  }
-  
-  
-  .AddNotDisplay {
-    display: none;
-  }
-  
-  .menu ul button:hover {
-    background: var(--btns-background);
-    transition: all 0.5s linear;
-  }
-  
-  .menu ul button:hover > a {
-    color: rgb(244, 240, 240);
-  }
-  
-  .registerMain ul li i,
-  .footerData i {
-    padding-right: 0.3rem;
-  }
-  
-  .RegisterClose {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-  
-  .Registermodal {
-    background: none;
-    border: none;
-    margin: auto;
-  }
-  
-  /* ------------------------------PRODUCT DESCRIPTION PAGE------------------------- */
-  
-  /* LEFT SIDE DATA */
-  
-  :root {
-    --offer-head: rgb(26, 170, 26);
-  }
-  
-  .productsDescriptionBox {
-    margin: 0 5rem;
-    height: 100%;
-    padding-top: 8rem;
-  }
-  
-  .productGrid {
-    display: grid;
-  }
-  
-  .productgrid-two-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .ProductDescriptionSection {
-    float: right;
-  }
-  
-  .ProductDescriptionSection a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .ProductDescriptionSection ul li {
-    list-style: none;
-    padding-left: 1rem;
-  }
-  
-  .mainImageDiv {
-    margin-bottom: 3rem;
-  }
-  
-  .mainImageDiv img {
-    box-shadow: var(--background-hover);
-  }
-  
-  .mainImageDiv img {
-    max-width: 100%;
-    height: 15rem;
-    cursor: zoom-in;
-  }
-  
-  .productImageGrid {
-    display: grid;
-  }
-  
-  .productImage {
-    flex-direction: column;
-  }
-  
-  .image1 img {
-    max-width: 120px;
-    height: 120px;
-    margin: 0.5rem;
-    transition: all 0.6s ease-in-out;
-  }
-  
-  .activeImageHighlight {
-    transform: translateY(-10px);
-  }
-  
-  .imageactive {
-    border: 4px solid var(--btns-background);
-  }
-  
-  .addToCart {
-    width: max-content;
-    height: 4rem;
-    padding: 1rem;
-    border: 0.2rem solid var(--btns-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1.5rem;
-    margin: 1rem;
-    cursor: grab;
-  }
-  .addToCart:hover{
-    background-color: var(--btns-background);
-    color: var(--white);
-  }
-  
-  .buyAddCart{
-    display: flex;
-  }
-  
-  /* RIGHT SIDE DATA */
-  
-  .productRatings {
-    margin-top: 1rem;
-  }
-  
-  .productRatings .ratings .rating {
-    background-color: var(--rating);
-    color: var(--white);
-    font-weight: 400;
-    font-size: 1rem;
-    padding: 2px 4px 2px 6px;
-    margin-right: 1rem;
-    border-radius: 0.4rem;
-  }
-  
-  .productCostData {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .productGrid h4 {
-    color: var(--offer-head);
-  }
-  
-  .productDiscounts {
-    display: flex;
-    align-items: center;
-  }
-  
-  .productDiscounts .productRate {
-    font-size: 1.5rem;
-    padding: 1rem 1rem 1rem 0;
-    font-weight: 900;
-  }
-  
-  .productDiscounts s {
-    padding: 1rem 1rem 1rem 0;
-    color: var(--grey);
-  }
-  
-  .productDiscounts small {
-    font-size: 1rem;
-    color: var(--offer-head);
-    font-weight: 600;
-  }
-  
-  .price-box{
-    padding: 0.4rem;
-  }
-  
-  .offerBtn{
-    position: absolute;
-    /* top: 0; */
-    right: 0;
-    bottom: 0.5rem;
-    font-size: 0.7rem;
-  }
-  
-  .discounts ul li {
-    list-style: none;
-    padding-left: 0.8rem;
-  }
-  
-  .delivery {
-    display: flex;
-    margin: 2rem 1rem 1rem 0;
-  }
-  
-  .delivery h4 {
-    margin-right: 1.5rem;
-    color: var(--grey);
-  }
-  
-  .delivery input {
-    border: none;
-    border-bottom: 2px solid var(--btns-background);
-    margin-right: 1rem;
-  }
-  
-  .delivery input:focus {
-    outline: none;
-  }
-  
-  .delivery .check {
-    color: var(--btns-background);
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .quantityData {
-    border: 1px solid rgb(62, 62, 233);
-    padding: 5px 20px;
-    margin: 0 0.4rem;
-  }
-  
-  .quantityData .quantity {
-    text-align: center;
-    margin-top: 0.2rem;
-  }
-  
-  .quantityActive {
-    background-color: var(--btns-background);
-    color: var(--white);
-    font-weight: 600;
-  }
-  
-  .aboutProducts,
-  #ratingSection {
-    border: 2px solid var(--grey);
-    width: 20rem;
-    padding: 1rem 1rem;
-  }
-  
-  #ratingSection {
-    margin-top: 2rem;
-  }
-  
-  .aboutProductsgrid {
-    display: grid;
-    gap: 1rem;
-  }
-  
-  .aboutProducts-two-columns {
-    grid-template-columns: 20% 80%;
-  }
-  
-  .Products-two-columns {
-    margin-top: 1.5rem;
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .aboutProducts p {
-    text-align: left;
-  }
-  
-  .aboutProducts p {
-    margin: 1rem 1rem 0 0;
-  }
-  
-  .aboutProducts p b {
-    margin-right: 1rem;
-  }
-  
-  .aboutProducts p span {
-    text-align: right;
-    align-items: center;
-  }
-  
-  #clock {
-    margin-left: 5rem;
-    background-color: var(--btns-background);
-    color: var(--white);
-    font-weight: 900;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-  }
-  
-  /* ------------------------------------------ABOUT SECTION--------------------------------------- */
-  
-  /* ---------------------SWIPER SECTION------------------ */
-  
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size:1.2rem;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .swiper-slide .productBoxMain{
-    height: 16rem;
-    width: 15rem;
-  }
-  
-  .swiper-slide img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .swiper-slide .productDetails,.productPrice{
-    text-align: left;
-  }
-  
-  .swiper-wrapper{
-    z-index: 1;
-  }
-  
-  /* USER DATA SECTION */
-  
-  .aboutGrid {
-    display: grid;
-    gap: 0.5rem;
-    flex-direction: row;
-  }
-  
-  .aboutGrid-two-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .Swipercontainer {
-    padding-top: 10rem;
-  }
-  
-  .swiper h2 {
-    margin: 1.5rem 3rem 2rem 3rem;
-  }
-  
-  .userReview {
-    padding: 1.2rem;
-    background: var(--white);
-    box-shadow: var(--box-shadow);
-    border: 2px solid var(--grey);
-    width: 30rem;
-    height: 15rem;
-    position: relative;
-  }
-  
-  .userReview .review {
-    text-align: left;
-    margin: 1rem 0;
-  }
-  
-  .userReview p {
-    text-align: justify;
-    margin-bottom: 1rem;
-  }
-  
-  .userReview .reviewStar {
-    text-align: left;
-    margin: 1rem 0;
-  }
-  
-  .user-profile img {
-    max-width: 100px;
-    height: 100px;
-  }
-  
-  .aboutUser {
-    margin: auto;
-  }
-  
-  /* PROGRESS BAR */
-  
-  .progress {
-    margin-top: 0.5rem;
-    width: 100%;
-    height: 15px;
-    background-color: var(--para-tint);
-    border-radius: 10px;
-    display: flex;
-  }
-  
-  #ratingSection p {
-    color: var(--btns-background);
-    font-weight: 900;
-  }
-  
-  .progress-bar {
-    width: 0;
-    opacity: 0;
-    height: inherit;
-    background-color: var(--btns-background);
-    border-radius: 10px;
-    position: relative;
-    transition: all 1s;
-  }
-  
-  .progress-bar span {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--white);
-  }
-  
-  /* CART SECTION */
-  
-  .cartSection {
-    max-width: 60rem;
-    margin: auto;
-    position: relative;
-    padding-top: 8rem;
-  }
-  
-  .cartSection > .cartGrid {
-    justify-content: space-evenly;
-    text-align: center;
-  }
-  
-  .cartGrid {
-    display: grid;
-    gap: 1.2rem;
-  }
-  
-  .cart-five-columns {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  
-  .incrBtn, .decBtn{
-    display: inline-block;
-    background-color: var(--black);
-    color: var(--white);
-    width: 0.8rem;
-    height: 1.2rem;
-    text-align: center;
-    margin: 0 0.2rem;
-    border-radius: 20%;
-  }
-  
-  .items-two-columns {
-    grid-template-columns: 20% 80%;
-  }
-  
-  .dataSection {
-    text-align: center;
-  }
-  
-  .quantitySection p i{
-    padding: 0 0.2rem;
-    font-size: 0.9em;
-  }
-  
-  .itemImage,
-  .dataSection p {
-    padding: 2rem 0;
-    text-align: center;
-    position: relative;
-  }
-  
-  .itemSection .itemData p {
-    position: relative;
-  }
-  
-  .itemSection .itemImage .productCartImages img {
-    margin-top: 1.8rem;
-  }
-  
-  .upcomingData {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .cartSection .cartGrid .itemImage img {
-    width: 40px;
-  }
-  
-  .cartSection .btn {
-    width: max-content;
-    font-size: 1rem;
-    color: var(--white);
-  }
-  
-  .subTotalData {
-    position: absolute;
-    right: 0;
-    width: max-content;
-    height: max-content;
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    background-color: rgb(215, 223, 228);
-    border-radius: 2rem;
-  }
-  
-  .subTotalData p {
-    line-height: 2;
-    font-weight: 900;
-  }
-  
-  .subTotalGrid {
-    display: grid;
-    gap: 1.5rem;
-  }
-  
-  .subTotal-two-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* SHIPPING DETAILS */
-  
-  .shippingBox .grid {
-    gap: 1rem;
-  }
-  
-  #cartBtn {
-    position: absolute;
-    margin: 0 2rem;
-    padding-top: 8rem;
-  }
-  
-  .shippingBox {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relatave;
-    padding-top: 8rem;
-  }
-  
-  .shippingData {
-    width: 40rem;
-    height: max-content;
-    padding: 1.5rem;
-    border: 2px solid var(--btns-background);
-    border-radius: 2rem;
-    margin: 3rem;
-  }
-  
-  .shippingData .header {
-    text-align: center;
-  }
-  
-  .shippingData label {
-    margin-bottom: 0.4rem;
-  }
-  
-  .shippingData .btn,
-  .orderSummary .btn,
-  .cartSection .btn,
-  .button .btn {
-    --gradientSupport: var(--btns-background);
-    background-color: var(--gradientSupport);
-    color: var(--white);
-    font-weight: 400;
-  }
-  
-  .shipmentSection .button {
-    margin: 0;
-  }
-  
-  /* SHIPPING INFO PROCEEDING */
-  
-  /* LEFT SIDE */
-  
-  .shipmentSection {
-    padding-top: 8rem;
-  }
-  
-  .shipmentSection .container {
-    margin: 0 auto;
-    cursor: pointer;
-  }
-  
-  .shippingDatas {
-    padding: 1.5rem;
-    margin: 1.5rem;
-    height: max-content;
-    border: 2px solid var(--grey);
-    box-shadow: var(--shadowSupport);
-  }
-  
-  .shippingInfo h2,
-  .orderSummary h2 {
-    margin: 1rem 0;
-  }
-  
-  .shippingInfo p,
-  .summaryData p,
-  .totalAmount p,
-  .cartItems p {
-    margin: 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .ShipInfoGrid {
-    display: grid;
-    gap: 1rem;
-  }
-  
-  .shippingInfo-two-columns {
-    grid-template-columns: 10% 90%;
-  }
-  
-  .Shippinggrid-two-columns {
-    grid-template-columns: 60% 30%;
-  }
-  
-  .shipping-three-columns {
-    grid-template-columns: 10% 30% 50%;
-  }
-  
-  #shipment {
-    display: none;
-  }
-  
-  .cartItems {
-    margin: 2rem 0;
-  }
-  
-  .cartItems figure {
-    text-align: center;
-  }
-  
-  .cartItems figure img {
-    max-width: 2rem;
-    height: 2rem;
-    margin: 0.2rem 0;
-  }
-  
-  .cartSection .cartButton {
-    text-align: center;
-  }
-  
-  .productCheckOutImage {
-    margin: 1rem 0;
-  }
-  
-  .productTotal p {
-    position: relative;
-  }
-  
-  .productTotal span {
-    position: absolute;
-    padding: 0 5rem;
-  }
-  
-  /* RIGHT SIDE */
-  
-  .summaryData-two-columns {
-    grid-template-columns: 70% 30%;
-  }
-  
-  .orderSummary h2,
-  .orderSummary .button {
-    text-align: center;
-  }
-  
-  .orderSummary {
-    width: 25rem;
-    height: max-content;
-    padding: 2rem;
-    margin: 2rem;
-  }
-  
-  /* PAYMENT SECTION */
-  
-  .paymentBox {
-    border: 2px solid var(--btns-background);
-    width: max-content;
-    height: max-content;
-    padding: 3rem;
-    margin: 2rem 0;
-    border-radius: 2rem;
-  }
-  
-  .paymentSection {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    padding-top: 8rem;
-  }
-  
-  .cardInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .cardInfo input {
-    width: 18rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    margin: 1rem 0;
-    border: 2px solid var(--btns-background);
-  }
-  
-  .paymentSection .button {
-    margin: 1rem 0;
-  }
-  
-  .paymentButton-two-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  #paymentSection {
-    display: none;
-  }
-  
-  /* PAYMENT SUCCESSFUL MESSAGE */
-  
-  .successMessage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .successMessage .modalBox {
-    text-align: center;
-    vertical-align: middle;
-    border: 2px solid var(--btns-background);
-    margin: 4rem;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
-  }
-  
-  .successMessage .modalBox h2 {
-    margin: 1.5rem;
-    font-size: 900;
-  }
-  
-  .successMessage .button {
-    margin: 0;
-    color: var(--white);
-    font-weight: 900;
-  }
-  
-  
-  
-  /* My Orders Section */
-  .orderMenu{
-    position: relative;
-  }
-  
-  .order{
-    margin-right: 0.8rem;
-  }
-  
-  #orderPage{
-     background-color: rgb(255, 253, 253);
-  }
-  
-  .orderDataBox{
-    display: grid;
-    place-items: center;
-  }
-  
-  .orderBox{
-    width: 80%;
-    height: max-content;
-    padding: 3rem;
-    margin-top: 5rem;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
-    border: 0.1rem solid var(--btns-background);
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .orderStatusData{
-    height: 5rem;
-    display: flex;
-    justify-items: center;
-    justify-content: space-around;
-  }
-  
-  #OrderId,#OrderStatus, #payment{
-    margin-top: 1.5rem;
-  }
-  
-  #cancelOrder{
-    height: 3rem;
-    width: max-content;
-  }
-  
-  .order-grid{
-    display: grid;
-  }
-  
-  .order-grid-two-column{
-    grid-template-columns: repeat(2,1fr);
-  }
-  
-  .order-grid-four-column{
-    grid-template-columns: 15% 25% 15% 25% 10%;
-  }
-  
-  .productImageData img{
-    width: 7rem;
-    height: 7rem;
-    padding:1rem;
-  }
-  
-  #productName{
-    color: var(--btns-background);
-    font-weight: 900;
-  }
-  
-  .productDetailsData{
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .productDetails p{
-    margin: 1rem 0;
-  }
-  
-  .orderStatus,.deliveryExcepted,.total{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2rem 4rem;
-  }
-  
-  .orders{
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .orders h2{
-    margin: 3rem 8rem 0 8rem;
-  }
+.popupMsg::backdrop {
+  background: #111111;
+  opacity: 0.6;
+}
+
+.popupMsg .offerImage img {
+  width: 100%;
+  height: 15rem;
+  background-image: cover;
+}
+
+.offerPopUp .offerContent {
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.offerContent {
+  display: grid;
+  place-items: center;
+}
+
+.offerPopUp .btn a {
+  color: inherit;
+  margin: 1.5rem 0;
+}
+
+.offerPopUp #offerPercentage {
+  color: var(--btns-background);
+  font-weight: 900;
+  padding: 0.4rem;
+  border-radius: 1rem;
+}
+
+.popupMsg .popupClose {
+  position: absolute;
+  top: 15px;
+  right: 14px;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+
+.fa-xmark {
+  border-radius: 50%;
+  padding: 0.2rem 0.6rem;
+  transition: all 0.3s linear;
+}
+
+.popupMsg .popupClose:hover,
+.fa-xmark:hover {
+  background-color: var(--btns-background);
+  color: var(--white);
+}
+
+
+/* -----------------------------------------BEVERGES PAGE-------------------------------- */
+
+/* Beverges Page Reusable code */
+
+:root {
+  --productbuy: rgb(24, 154, 63);
+  --rating: rgb(24, 154, 63);
+  --grey: #878787;
+}
+
+main {
+  height: 100%;
+}
+
+.mainData {
+  position: relative;
+}
+
+/* ------------------------------------Beverges Page Starts---------------------------- */
+
+.mainDivison {
+  width: 100%;
+  padding: 1rem;
+}
+
+.searchBox {
+  padding-top: 4rem;
+}
+
+.categoryData {
+  max-width: 15%;
+  position: absolute;
+  cursor: pointer;
+  position: fixed;
+}
+
+.categoryData aside {
+  background-color: var(--white);
+}
+
+.clearSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* PRODUCT SECTION */
+
+.productsDiv {
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.productGrid {
+  display: grid;
+}
+
+.productBox {
+  position: relative;
+  width: 100%;
+  height: 18rem;
+  padding: 1.2rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.productImage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage img {
+  height: 6rem;
+  max-width: 100%;
+}
+
+.imagePosition {
+  display: flex;
+  justify-content: center;
+}
+
+.productDec {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+.productDetails {
+  margin-bottom: 0.5rem;
+}
+
+.productPrice .rating {
+  background-color: var(--rating);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 2px 4px 2px 6px;
+  margin-right: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+.productPrice {
+  position: relative;
+}
+
+.productPrice .ratings {
+  margin-bottom: 0.5rem;
+}
+
+.productPrice s {
+  color: var(--grey);
+}
+
+.productBox:hover,
+.productBoxMain:hover {
+  box-shadow: 0px 0px 18px -5px rgba(0, 0, 0, 0.75);
+}
+
+.productBox:hover .figCaptionDiv {
+  color: var(--gradient);
+}
+
+.productBox:hover .fa-heart {
+  color: #Ff0000;
+}
+
+/* ----------------Product Page----------- */
+
+.searchBox input {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid var(--btns-background);
+  padding: 0.6rem;
+  margin-right: 2rem;
+  border-radius: 1rem;
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.addWishlistDiv {
+  display: flex;
+  margin: 0.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.offerBtn {
+  position: absolute;
+  /* top: 0; */
+  right: 0;
+  bottom: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.addWishlistDiv .btnD {
+  position: absolute;
+  margin: 0 1.2rem;
+  left: 0;
+}
+
+.addWishlistDiv p {
+  position: absolute;
+  margin: 0 1.2rem;
+  right: 0;
+}
+
+.AddNotDisplay {
+  display: none;
+}
+
+#filterPrice {
+  position: absolute;
+  right: 15rem;
+  margin: 1rem;
+}
+
+.figCaptionDiv {
+  min-height: 3rem;
+  text-align: center;
+  color: var(--black);
+}
+
+.notActivate {
+  display: none;
+}
+
+/* Successful Popup Message */
+
+/* PAYMENT SUCCESSFUL MESSAGE */
+
+.successMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.successMessage .modalBox {
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid var(--btns-background);
+  margin: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+}
+
+.successMessage .modalBox h2 {
+  margin: 1.5rem;
+  font-size: 900;
+}
+
+.successMessage .button {
+  margin: 0;
+  color: var(--white);
+  font-weight: 900;
+}
+
+
+/* -------------------------------Resuable Code Ends--------------------------------------- */

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
-  constructor() { }
+  category: string | null = "";
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    if (this.route.snapshot.paramMap.get('category')) {
+      this.category = this.route.snapshot.paramMap.get('category');
+    } 
   }
-
 }

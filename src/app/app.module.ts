@@ -10,14 +10,19 @@ import { ContactUsComponent } from '../contactUs/contactUs.component';
 import { CartComponent } from '../cart/cart.component';
 import { ProductDescriptionComponent } from '../productDescription/productDescription.component';
 import { CategoryComponent } from '../category/category.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from '../footer/footer.component';
-import { LoginComponent } from '../login/login.component';
 import { ErrorComponent } from '../error/error.component';
 import { MenuComponent } from '../menu/menu.component';
+import { ShippingComponent } from '../shipping/shipping.component';
+import { OrderDetailsComponent } from '../orderDetails/orderDetails.component';
+import { PaymentComponent } from '../payment/payment.component';
+import { MyOrdersComponent } from '../myOrders/myOrders.component';
+import { AdminModule } from './admin/admin.module';
+
 
 @NgModule({
-  declarations: [													
+  declarations: [																		
       AppComponent,
       HomeComponent,
       ProductsComponent,
@@ -27,16 +32,20 @@ import { MenuComponent } from '../menu/menu.component';
       ProductDescriptionComponent,
       CategoryComponent,
       FooterComponent,
-      LoginComponent,
       ErrorComponent,
-      ErrorComponent,
-      MenuComponent
+      MenuComponent,
+      ShippingComponent,
+      OrderDetailsComponent,
+      PaymentComponent,
+      MyOrdersComponent,
    ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
