@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { product } from 'src/app/admin/product';
 import { CartService } from 'src/cart.service';
 import { ProductsDataService } from 'src/productsData.service';
@@ -15,7 +16,7 @@ export class ShippingComponent implements OnInit {
 
   registeredUserData: any = "";
   activeUserData: any = "";
-  constructor(private userData: ProductsDataService, private cartService:CartService, private title: Title, private formBuilder:FormBuilder) {
+  constructor(private userData: ProductsDataService, private cartService:CartService, private title: Title, private formBuilder:FormBuilder, private route:Router) {
   }
 
   shippingForm = this.formBuilder.group(
@@ -50,16 +51,16 @@ export class ShippingComponent implements OnInit {
     this.shippingForm.controls['customerMail'].setValue(this.activeUserData.mail),
     this.shippingForm.controls['customerMobile'].setValue(this.activeUserData.mobile)
     
-    let uid = sessionStorage.getItem("userId");
-    let totalAmount = this.cartService.getProductTotalAmount();
-    let userOrderData = {
-      ...this.shippingForm.value,
-      totalAmount,
-      uid
-    }
-    this.cartService.order(userOrderData).subscribe((response)=>{
-      response?alert("order Placed Successfully"):alert("Error while placing order");
-    })
-    console.warn(userOrderData);
+    // let uid = sessionStorage.getItem("userId");
+    // let totalAmount = this.cartService.getProductTotalAmount();
+    // let userOrderData = {
+    //   ...this.shippingForm.value,
+    //   totalAmount,
+    //   uid
+    // }
+    // this.cartService.order(userOrderData).subscribe((response)=>{
+    //   response?alert("order Placed Successfully"):alert("Error while placing order");
+    // });
+    this.route.navigate(['cart/shipping/orderDetails']);
   }
 }

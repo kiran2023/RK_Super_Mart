@@ -5,7 +5,7 @@
       <div class="header">
         <h2>Shipping Details</h2>
       </div>
-      <form [formGroup]="shippingForm">
+      <form [formGroup]="shippingForm" (ngSubmit)="shippingData()">
         <div class="grid grid-two-columns">
           <div class="form_fields">
             <label>User Name</label>
@@ -50,7 +50,7 @@
         <div id="proceedPayment">
           <button routerLink="../" class="btn"><i class="fa-solid fa-arrow-left"></i>
             Back to Cart</button>
-          <button class="btn" type="submit" routerLink="orderDetails" *ngIf="shippingForm.valid"> Continue </button>
+          <button class="btn" type="submit" *ngIf="shippingForm.valid"> Continue </button>
           <p *ngIf="shippingForm.invalid">Enter all the fields to proceed further</p>
         </div>
       </form>

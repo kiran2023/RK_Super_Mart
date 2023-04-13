@@ -12,6 +12,8 @@ export class CartService {
   cartProducts: any = [];
   productList = new BehaviorSubject<any>([]);
 
+  userid = sessionStorage.getItem("userId");
+
   cartUrl = 'http://localhost:3000/cartData';
   usersCartUrl = 'http://localhost:3000/cartData?uid='
   orderUrl = 'http://localhost:3000/orders';
@@ -50,7 +52,6 @@ export class CartService {
       if(res && res.body){
         this.cartProducts = res.body;
         this.productList.next(this.cartProducts);
-        console.warn(this.productList.value.length);
       }
     });
   }
@@ -76,7 +77,6 @@ export class CartService {
   }
 
   ordersData(){
-    let userid = sessionStorage.getItem("userId");
-    return this.http.get(`${this.ordersDataUrl}${userid}`)
+    return this.http.get<order[]>(`${this.ordersDataUrl}${this.userid}`)
   }
 }

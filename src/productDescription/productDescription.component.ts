@@ -39,7 +39,7 @@ export class ProductDescriptionComponent implements OnInit {
             index++;
             this.featuredProducts.push(product);
           }
-        }
+        }        
         this.titleService.setTitle(`${this.finalProduct?.title} | RK MART`);
       });
     });

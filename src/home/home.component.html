@@ -34,7 +34,7 @@
     <div class="sales-products grid-sales grid-sales-four-column">
       <div *ngFor="let product of householdProduct; let i = index">
         <ng-container>
-          <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.title}}">
+          <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.id}}">
             <div class="productBox groceryProducts grocery {{product.classData}}" attr.id="{{product.id}}"
               attr.filtervalue="{{product.filterValue}}" attr.uniqueid="{{product.uniqueId}}"
               attr.value="{{product.value}}" attr.reviewrating="{{product.ratingCount}}">
@@ -78,7 +78,7 @@
       </div>
       <div class="sales-products grid-sales grid-sales-four-column">
         <div *ngFor="let product of beveragesProduct; let i = index">
-          <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.title}}">
+          <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.id}}">
             <div class="productBox groceryProducts grocery {{product.classData}}" attr.id="{{product.id}}"
               attr.filtervalue="{{product.filterValue}}" attr.uniqueid="{{product.uniqueId}}"
               attr.value="{{product.value}}" attr.reviewrating="{{product.ratingCount}}">
@@ -124,7 +124,7 @@
       <div class="sales-products grid-sales grid-sales-four-column">
         <div *ngFor="let product of groceryProduct; let i = index">
           <ng-container>
-            <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.title}}">
+            <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.id}}">
               <div class="productBox groceryProducts grocery {{product.classData}}" attr.id="{{product.id}}"
                 attr.filtervalue="{{product.filterValue}}" attr.uniqueid="{{product.uniqueId}}"
                 attr.value="{{product.value}}" attr.reviewrating="{{product.ratingCount}}">

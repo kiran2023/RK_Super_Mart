@@ -38,7 +38,7 @@
                     <div class="productDiscounts">
                         <p class="productRate"> {{finalProduct?.originalAmount|currency:'INR'}} <span>
                                 <s>{{finalProduct?.discounted|currency:'INR'}}</s>
-                                <small class="offerData">{{myMath.abs(((finalProduct.originalAmount-finalProduct.discounted)/finalProduct.discounted)*100)|number:'.0-0'}} OFF</small>
+                                <small class="offerData">{{myMath.abs(((finalProduct?.originalAmount-finalProduct?.discounted)/finalProduct?.discounted)*100)|number:'.0-0'}} OFF</small>
                             </span> </p>
                         <!-- <p id="clock"></p> -->
                     </div>

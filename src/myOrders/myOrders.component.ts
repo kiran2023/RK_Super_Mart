@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { order } from 'src/app/admin/product';
+import { cart, order } from 'src/app/admin/product';
 import { CartService } from 'src/cart.service';
 
 @Component({
@@ -8,15 +8,18 @@ import { CartService } from 'src/cart.service';
   styleUrls: ['./myOrders.component.css']
 })
 export class MyOrdersComponent implements OnInit {
-  orderData:any='';
-  orderTotalAmount:any
+  userid = sessionStorage.getItem("userId");
+  orderData:any="";
+  orderTotalAmount:any;
+
+  cartOrderList:cart[]|undefined;
+
   constructor(private cartService:CartService) { }
 
   ngOnInit() {
-    this.cartService.ordersData().subscribe((data)=>{
-      this.orderData = data;
-    });
-    this.orderTotalAmount = this.cartService.getProductTotalAmount();
-    console.warn(this.orderTotalAmount);
+    // this.cartService.ordersData().subscribe((data)=>{
+    //   this.orderData = data;
+    // });
+    this.orderData = this.cartService.getUsersCartList(this.userid);
   }
 }
