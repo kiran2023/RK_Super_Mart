@@ -30,11 +30,12 @@ export class CartComponent implements OnInit {
   }
 
   removeProduct(product:any){
-    this.cartService.removeProduct(product,sessionStorage.getItem('userId'));
+    this.cartService.removeProduct(product,sessionStorage.getItem('userId')).subscribe();
   }
 
   clearCart(){
-    this.cartService.clearCart();
+    this.product.forEach((product:any)=>{
+      this.cartService.clearCart(product.id);
+    })
   }
-
 }

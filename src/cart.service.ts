@@ -16,6 +16,7 @@ export class CartService {
 
   cartUrl = 'http://localhost:3000/cartData';
   usersCartUrl = 'http://localhost:3000/cartData?uid='
+  usersCartDeleteUrl = 'http://localhost:3000/cartData?uid='
   orderUrl = 'http://localhost:3000/orders';
   ordersDataUrl = 'http://localhost:3000/orders?uid='
 
@@ -59,19 +60,27 @@ export class CartService {
   }
 
   removeProduct(product: any,userid:any) {
-    let indexData = product.id;
-    this.cartProducts.map((productData: any, indexData:any, userid:any) => {
-      if(product.id == productData.id) {
+    let indexData = product.productid;
+    let removefromCart:any|undefined;
+    this.cartProducts.map((productData: any, indexData:any) => {
+      if(product.productid == productData.productid && userid==productData.uid) {
         this.cartProducts.splice(indexData,1);
+        removefromCart = productData;
+        this.productList.next(this.cartProducts);
       }
     });
-    this.productList.next(this.cartProducts);
-    return this.http.delete(`${this.cartUrl} ${product.id}`)
+    console.warn(`${this.cartUrl}/${removefromCart.id}`);
+    
+    return this.http.delete(`${this.cartUrl}/${removefromCart.id}`);
   }
 
-  clearCart() {
-    this.cartProducts = [];
-    this.productList.next(this.cartProducts);
+  clearCart(productId:number) {
+    return this.http.delete(`${this.cartUrl}/${productId}`,{observe:'response'}).subscribe((response)=>{
+      if(response){
+        this.cartProducts = [];
+        this.productList.next(this.cartProducts);
+      }
+    });
   }
 
   order(orderData:any){
