@@ -128,7 +128,9 @@ export class MenuComponent implements OnInit {
           this.admin.admin = true;
           sessionStorage.setItem('adminLoggedIn', 'true')
           sessionStorage.setItem('userName', user.name);
-          this.router.navigate(['/', 'admin', 'dashboard'])
+          this.closePanel();
+          this.router.navigate(['admin/dashboard']);
+          break;
         }
       }
     }

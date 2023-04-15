@@ -48,11 +48,14 @@ export class ProductDescriptionComponent implements OnInit {
   addtoCartData() {
     if (this.productDataService.userLogin) {
       let uid = sessionStorage.getItem('userId');
-      let dataToCart: product = {
+      let dataToCart: cart = {
         ...this.finalProduct,
+        productid : this.finalProduct.id,
         uid,
       }
-      this.cartService.addToCart(dataToCart).subscribe((res: any) => {
+      delete dataToCart.id;
+      
+      this.cartService.addToCart(dataToCart)?.subscribe((res: any) => {
         if (res) {
           alert("done")
         } else {

@@ -26,8 +26,8 @@
     </nav>
     <div [hidden]="!loggedin">
         <div class="user">
-            <p id="user" title="{{loggedinUser|uppercase}}"> <i class="fa-regular fa-circle-user"></i>
-                {{(loggedinUser?.username|uppercase)||(loggedinUser|uppercase)}}</p>
+            <p id="user" title="{{loggedinUser}}"> <i class="fa-regular fa-circle-user"></i>
+                {{(loggedinUser?.username)||(loggedinUser)}}</p>
             <p id="user" title="Logout" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></p>
         </div>
     </div>
@@ -168,7 +168,7 @@
                             </div>
 
                             <h4 style="text-align: center;">Already a user?</h4> <span>
-                                <input type="button" value="Login" class="btn" id="loginToggle"
+                                <input type="button" value="Login" class="btn"
                                     (click)="loginModal()"></span>
                         </div>
                     </form>

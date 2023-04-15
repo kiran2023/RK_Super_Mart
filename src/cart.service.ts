@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ProductsDataService } from './productsData.service';
-import { order, product } from './app/admin/product';
+import { cart, order, product } from './app/admin/product';
 
 @Injectable({
   providedIn: 'root'
@@ -26,20 +26,22 @@ export class CartService {
     return this.productList.asObservable();
   }
 
-  addToCart(productData: product) {
-    var result: boolean = false;
-    this.cartProducts.filter((product: product): boolean => product.id == productData.id? result = true: result );
+  addToCart(productData: cart) {
+    let result: boolean = false;
+    let returnData;
+    this.cartProducts.filter((product: cart): boolean =>product.productid == productData.productid && this.userid==product.uid? result = true: result);
     if(!result){
       this.cartProducts.push(productData);
       this.productList.next(this.cartProducts);
-      this.getProductTotalAmount();    
+      this.getProductTotalAmount();  
+      returnData = this.http.post(`${this.cartUrl}`,productData);
     }else{
       alert("Already added in the cart");
     }
-    return this.http.post(`${this.cartUrl}`,productData);  
+    return returnData; 
   }
 
-  getProductTotalAmount(data?:any):number {
+  getProductTotalAmount():number {
     let grandTotal = 0;
     this.cartProducts.map((product: product) => {
       grandTotal = grandTotal + parseInt(product.originalAmount,10)
