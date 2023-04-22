@@ -45,6 +45,16 @@ export class ProductDescriptionComponent implements OnInit {
     });
   }
 
+  ngOnInit(): void {
+    this.cartService.getProducts().subscribe((products: any) => {
+      products.filter((product: any) => {
+        if (product.productid == this.finalProduct.id) {
+          this.removeProduct = true;
+        }
+      })
+    })
+  }
+
   addtoCartData() {
     if (this.productDataService.userLogin) {
       let uid = sessionStorage.getItem('userId');
