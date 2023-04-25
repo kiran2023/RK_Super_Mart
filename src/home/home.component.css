@@ -1,6 +1,6 @@
 /* ------------------------MAIN DATA--------------------- */
 
-section{
+section {
   padding: 0rem;
 }
 
@@ -10,13 +10,13 @@ h1 {
   margin-bottom: 1rem;
 }
 
- #main-section{
+#main-section {
   display: grid;
-  place-items: center; 
+  place-items: center;
   height: 100vh;
   margin: 0 10rem 0 10rem;
   padding-top: 6rem;
-} 
+}
 
 #main-heading,
 .featured-products h2 {
@@ -39,11 +39,11 @@ h1 {
   border-radius: 3rem;
 }
 
-.main .btns{
+.main .btns {
   font-size: 1.2rem;
 }
 
-.main-data{
+.main-data {
   margin: auto;
 }
 
@@ -57,4 +57,8 @@ span {
   height: 18rem;
   padding: 1.2rem;
   transition: all 0.4s ease-in-out;
+}
+
+.container-sales {
+  padding: 2rem 0 2rem 2rem;
 }

@@ -62,18 +62,23 @@ export class ProductDescriptionComponent implements OnInit {
   }
 
   cartData() {
+    let productFound:boolean|undefined=false;
     this.cartService.getProducts().subscribe((products: any) => {
       products.filter((product: any) => {
         if (product.productid == this.requiredProduct) {
           this.removeCartProduct = product;
           this.removeProduct = true;
+          productFound = true;
         }
-      })
-    })
+      });
+    });
+    !productFound?this.removeProduct=false:this.removeProduct;
   }
 
-  loginStatusData(loginData:boolean){
-     this.userLoggedin = loginData;
+  loginStatusData(loginData: boolean) {
+    this.cartService.getUsersCartList(sessionStorage.getItem("userId"));
+    this.cartData();
+    this.userLoggedin = loginData;
   }
 
   addtoCartData() {
@@ -100,13 +105,8 @@ export class ProductDescriptionComponent implements OnInit {
   }
 
   deleteFromCart() {
-    // this.cartData();
-
     this.cartService.removeProduct(this.removeCartProduct!, sessionStorage.getItem('userId'))?.subscribe();
     this.removeProduct = false;
   }
-
-  // ngAfterViewChecked(){
-  //   this.userLoggedin = Boolean(sessionStorage.getItem("userLoggedIn"));
-  // }
+  
 }

@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AdminProductsService } from 'src/app/admin/adminProducts.service';
 import { AuthUserGuard } from 'src/app/auth-user.guard';
 import { CartService } from 'src/cart.service';
-import { ProductDescriptionComponent } from 'src/productDescription/productDescription.component';
 import { ProductsDataService } from 'src/productsData.service';
 
 @Component({
@@ -43,8 +42,8 @@ export class MenuComponent implements OnInit {
       this.dataService.userLogin = this.loggedin;
       this.loggedinUser = sessionStorage.getItem('userName');
       this.cartService.getUsersCartList(sessionStorage.getItem('userId'));
+      this.cartService.getProducts().subscribe(product => this.cartDataCount = product.length);
     }
-    this.cartService.getProducts().subscribe(product => this.cartDataCount = product.length);
   }
 
   registerForm = this.loginFormBuilder.group(
@@ -57,6 +56,9 @@ export class MenuComponent implements OnInit {
   )
 
   loginModal() {
+    this.dataService.registeredUser().subscribe((user) => {
+      this.users = user;
+    });
     const LoginPanel: any = document.querySelector(".Loginmodal");
     const RegisterPanel: any = document.querySelector(".Registermodal");
     const SuccessfulRegistered: any = document.querySelector('.registerSuccessModal');
