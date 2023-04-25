@@ -23,6 +23,7 @@ export interface product {
 export interface cart {
     image: any;
     productName: any;
+    title:any;
     quantity: any;
     originalAmount: any;
     id: number|undefined;

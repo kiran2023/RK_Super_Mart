@@ -1,5 +1,5 @@
 <!-- ------------------Navigation Menu----------------- -->
-<app-menu></app-menu>
+<app-menu (loginStatus) = "loginStatusData($event)"></app-menu>
 
 <!-- -------------------------Product Description----------------------- -->
 
@@ -17,10 +17,11 @@
 
 
             <div [hidden]="!userLoggedin">
-                <div class="buyAddCart" (click)="addtoCartData()">
+                <div class="buyAddCart">
 
                     <div class="addToCart">
-                        <i class="fa-solid fa-cart-shopping"> Add to CART </i>
+                        <i *ngIf="!removeProduct" (click)="addtoCartData()" class="fa-solid fa-cart-shopping"> Add to CART </i>
+                        <i *ngIf="removeProduct" (click)="deleteFromCart()" class="fa-solid fa-cart-shopping"> Remove From CART </i>
                     </div>
                     <!-- <div class="buy addToCart" routerLink="/shipping">
                         <i class="fa-solid fa-cart-shopping"> Buy Now </i>
@@ -108,9 +109,9 @@
             <button class="btn"> <a routerLink="/products"> Grab Now </a></button>
         </div>
         <div class="sales-products grid-sales grid-sales-four-column">
-            <div *ngFor="let product of featuredProducts; let i = index">
+            <div *ngFor="let product of featuredProducts">
                 <ng-container>
-                    <a *ngIf="i<=3" routerLink="/products/productDescription/{{product.id}}">
+                    <a routerLink="/products/productDescription/{{product.id}}">
                         <div class="productBox groceryProducts grocery {{product.classData}}" attr.id="{{product.id}}"
                             attr.filtervalue="{{product.filterValue}}" attr.uniqueid="{{product.uniqueId}}"
                             attr.value="{{product.value}}" attr.reviewrating="{{product.ratingCount}}">

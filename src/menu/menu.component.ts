@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminProductsService } from 'src/app/admin/adminProducts.service';
 import { AuthUserGuard } from 'src/app/auth-user.guard';
 import { CartService } from 'src/cart.service';
+import { ProductDescriptionComponent } from 'src/productDescription/productDescription.component';
 import { ProductsDataService } from 'src/productsData.service';
 
 @Component({
@@ -18,9 +19,11 @@ export class MenuComponent implements OnInit {
   users: any = "";
   loggedin: boolean = false;
   loggedinUser: any = "";
-  loggedinUserMail:string="";
+  loggedinUserMail: string = "";
 
   cartDataCount: number = 0;
+
+  @Output() loginStatus:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private dataService: ProductsDataService, private cartService: CartService, private loginFormBuilder: FormBuilder, private admin: AdminProductsService, private auth: AuthUserGuard, private router: Router, private http: HttpClient) {
     this.dataService.registeredUser().subscribe((user) => {
@@ -91,7 +94,7 @@ export class MenuComponent implements OnInit {
         }
       });
       if (newUser) {
-        this.dataService.registerUser(this.registerForm.value).subscribe(data => {});
+        this.dataService.registerUser(this.registerForm.value).subscribe(data => { });
         SuccessfulRegistered.showModal();
       } else {
         alert("Already Registered");
@@ -106,10 +109,10 @@ export class MenuComponent implements OnInit {
     for (let user of this.users) {
       if (usermail.value === user.mail && userpassword.value === user.password) {
         invalidLogin.innerHTML = "";
-        this.loggedinUser = user;
-        this.dataService.activeUser = this.loggedinUser;
         this.loggedin = true;
         this.dataService.userLogin = this.loggedin;
+        this.loggedinUser = user;
+        this.dataService.activeUser = this.loggedinUser;
         sessionStorage.setItem('userLoggedIn', 'true')
         sessionStorage.setItem('userName', user.username);
         sessionStorage.setItem('userMail', user.mail);
@@ -117,6 +120,7 @@ export class MenuComponent implements OnInit {
         this.cartService.getUsersCartList(sessionStorage.getItem('userId'));
         this.closePanel();
         alert("Login Successful");
+        this.loginStatus.emit(this.loggedin);
         break;
       }
     }
@@ -142,12 +146,15 @@ export class MenuComponent implements OnInit {
   }
 
   logout() {
-    this.loggedin = false;
-    this.dataService.userLogin = this.loggedin;
-    this.loggedinUser = "";
-    this.dataService.activeUser = this.loggedinUser;
-    sessionStorage.clear();
+    let result = confirm("Are you sure want to Logout");
+    if (result) {
+      this.loggedin = false;
+      this.dataService.userLogin = this.loggedin;
+      this.loggedinUser = "";
+      this.dataService.activeUser = this.loggedinUser;
+      sessionStorage.clear();
+      this.loginStatus.emit(this.loggedin);
+    }
   }
-
 }
 

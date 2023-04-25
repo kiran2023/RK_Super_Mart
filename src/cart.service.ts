@@ -15,11 +15,10 @@ export class CartService {
   userid = sessionStorage.getItem("userId");
 
   cartUrl = 'http://localhost:3000/cartData';
-  usersCartUrl = 'http://localhost:3000/cartData?uid='
-  usersCartDeleteUrl = 'http://localhost:3000/cartData?uid='
+  usersCartUrl = 'http://localhost:3000/cartData?uid=';
+  usersCartDeleteUrl = 'http://localhost:3000/cartData?uid=';
   orderUrl = 'http://localhost:3000/orders';
-  ordersDataUrl = 'http://localhost:3000/orders?uid='
-
+  ordersDataUrl = 'http://localhost:3000/orders?uid=';
 
   constructor(private http:HttpClient, private productService:ProductsDataService) { }
 
@@ -34,7 +33,7 @@ export class CartService {
     if(!result){
       this.cartProducts.push(productData);
       this.productList.next(this.cartProducts);
-      this.getProductTotalAmount();  
+      this.getProductTotalAmount();        
       returnData = this.http.post(`${this.cartUrl}`,productData);
     }else{
       alert("Already added in the cart");
@@ -59,18 +58,16 @@ export class CartService {
     });
   }
 
-  removeProduct(product: any,userid:any) {
-    let indexData = product.productid;
+  removeProduct(product: cart,userid:any) {
+    let indexData = product.productid;    
     let removefromCart:any|undefined;
-    this.cartProducts.map((productData: any, indexData:any) => {
-      if(product.productid == productData.productid && userid==productData.uid) {
+    this.cartProducts.map((productData: cart, indexData:any) => {
+      if(product.productid == productData.productid && userid==productData.uid && product.id==productData.id) {
         this.cartProducts.splice(indexData,1);
         removefromCart = productData;
         this.productList.next(this.cartProducts);
       }
-    });
-    console.warn(`${this.cartUrl}/${removefromCart.id}`);
-    
+    });    
     return this.http.delete(`${this.cartUrl}/${removefromCart.id}`);
   }
 

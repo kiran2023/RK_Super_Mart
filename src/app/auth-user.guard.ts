@@ -8,7 +8,7 @@ import { ProductsDataService } from 'src/productsData.service';
 export class AuthUserGuard implements CanActivate, CanActivateChild {
   constructor(private authenticate: ProductsDataService, private route:Router) { }
   
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot): boolean {
     if (this.authenticate.userLogin||sessionStorage.getItem('userLoggedIn')) {
        return true;
     }
