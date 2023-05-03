@@ -18,6 +18,8 @@ export class AdminProductsService {
   editProductID:any;
 
   getProductDataUrl = 'http://localhost:3000/Productdata';
+  getCategoryUrl = 'http://localhost:3000/category';
+  getCategoryTypesUrl = 'http://localhost:3000/categoryTypes';
   getRegisteredUsersUrl = 'http://localhost:3000/registeredUser';
 
   constructor(private http: HttpClient, private userAuth: ProductsDataService, private route: Router) {
@@ -38,6 +40,22 @@ export class AdminProductsService {
 
   addProduct(productData: product) {
     return this.http.post(`${this.getProductDataUrl}`, productData);
+  }
+
+  addCategory(categoryData: any) {
+    return this.http.post(`${this.getCategoryUrl}`, categoryData);
+  }
+
+  updateCategory(categoryData: any, categoryID:any) {
+    return this.http.put(`${this.getCategoryUrl}/${categoryID}`, categoryData);
+  }
+
+  getCategory() {
+    return this.http.get(`${this.getCategoryUrl}`);
+  }
+
+  addCategoryTypes(category:string){
+    return this.http.post(`${this.getCategoryTypesUrl}`,category); 
   }
 
   editProduct(productId:string|undefined|null){

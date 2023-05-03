@@ -181,7 +181,6 @@
       "title": "Banana Nendran",
       "productName": "Banana Nendran 4 pcs (Box)",
       "quantity": "800g - 1200g (Approx)",
-      "rating": "4.7",
       "ratingCount": "848",
       "reviewCount": "93",
       "originalAmount": "129",
@@ -774,6 +773,126 @@
       "id": 36
     }
   ],
+  "categoryTypes": [],
+  "category": [
+    {
+      "categoryType": "k",
+      "category": [
+        "k"
+      ],
+      "categoryClass": [
+        "k"
+      ],
+      "categoryUniqueValue": [
+        "k"
+      ],
+      "id": 1
+    },
+    {
+      "categoryType": "ku",
+      "category": [
+        "i"
+      ],
+      "categoryClass": [
+        "i"
+      ],
+      "categoryUniqueValue": [
+        "i"
+      ],
+      "id": 2
+    },
+    {
+      "categoryType": "o",
+      "category": [
+        "k"
+      ],
+      "categoryClass": [
+        "k"
+      ],
+      "categoryUniqueValue": [
+        "o"
+      ],
+      "id": 3
+    },
+    {
+      "categoryType": "ok",
+      "category": [
+        "k"
+      ],
+      "categoryClass": [
+        "k"
+      ],
+      "categoryUniqueValue": [
+        "o"
+      ],
+      "id": 4
+    },
+    {
+      "categoryType": "kl",
+      "category": [
+        "k"
+      ],
+      "categoryClass": [
+        "k"
+      ],
+      "categoryUniqueValue": [
+        "o"
+      ],
+      "id": 5
+    },
+    {
+      "categoryType": "i",
+      "category": [
+        "ii"
+      ],
+      "categoryClass": [
+        "i"
+      ],
+      "categoryUniqueValue": [
+        "i"
+      ],
+      "id": 6
+    },
+    {
+      "categoryType": "ioplpll",
+      "category": [
+        "ii"
+      ],
+      "categoryClass": [
+        "i"
+      ],
+      "categoryUniqueValue": [
+        "i"
+      ],
+      "id": 7
+    },
+    {
+      "categoryType": "trrr",
+      "category": [
+        "t"
+      ],
+      "categoryClass": [
+        "t"
+      ],
+      "categoryUniqueValue": [
+        "t"
+      ],
+      "id": 8
+    },
+    {
+      "categoryType": "r",
+      "category": [
+        "r"
+      ],
+      "categoryClass": [
+        "r"
+      ],
+      "categoryUniqueValue": [
+        "r"
+      ],
+      "id": 9
+    }
+  ],
   "cartData": [
     {
       "Stock": "16",
@@ -1066,6 +1185,132 @@
       "productid": 35,
       "uid": "6",
       "id": 40
+    },
+    {
+      "Stock": "46",
+      "category": "beverages",
+      "uniqueId": "15",
+      "filterValue": "10",
+      "classData": "p-btn--13 p-btn--10 p-btn--26 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
+      "value": "020",
+      "image": "assets/images/Beverges/bevergeLimca.png",
+      "alt": "beverges",
+      "title": "Limca",
+      "productName": "Limca Lime n Lemoni",
+      "quantity": "2L",
+      "rating": "4.3",
+      "ratingCount": "1,243",
+      "reviewCount": "2,905",
+      "originalAmount": "68",
+      "discounted": "95",
+      "productid": 15,
+      "uid": "1",
+      "id": 41
+    },
+    {
+      "Stock": "15",
+      "category": "grocery",
+      "uniqueId": "2",
+      "filterValue": "1",
+      "classData": "p-btn--1 p-btn--14 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
+      "value": "010",
+      "image": "assets/images/VeggetablesFruits/appleGranny.png",
+      "alt": "Fresh Groceries",
+      "title": "Apple Granny",
+      "productName": "Apple Granny Smith 4 pcs",
+      "quantity": "450g - 600g (Approx)",
+      "rating": "4.4",
+      "ratingCount": "976",
+      "reviewCount": "256",
+      "originalAmount": "249",
+      "discounted": "299",
+      "productid": 2,
+      "uid": "7",
+      "id": 42
+    },
+    {
+      "Stock": "21",
+      "category": "grocery",
+      "uniqueId": "4",
+      "filterValue": "1",
+      "classData": "  p-btn--1 p-btn--14 p-btn--27 p-btn--29 p-btn--30 p-btn--31",
+      "value": "010",
+      "image": "assets/images/VeggetablesFruits/appleIndian.png",
+      "alt": "Fresh Groceries",
+      "title": "Apple Indian",
+      "productName": "Apple Indian 6 pcs",
+      "quantity": "750g - 950g (Approx)",
+      "rating": "4.2",
+      "ratingCount": "1536",
+      "reviewCount": "236",
+      "originalAmount": "99",
+      "discounted": "118",
+      "productid": 4,
+      "uid": "1",
+      "id": 45
+    },
+    {
+      "Stock": "21",
+      "category": "beverages",
+      "uniqueId": "18",
+      "filterValue": "12",
+      "classData": " p-btn--12 p-btn--13 p-btn--26 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
+      "value": "020",
+      "image": "assets/images/Beverges/bevergeEvocus.png",
+      "alt": "beverges",
+      "title": "Evocus Black Alkaline Water",
+      "productName": "Evocus Black Alkaline Water",
+      "quantity": "12 x 500ml",
+      "rating": "4.7",
+      "ratingCount": "181",
+      "reviewCount": "23",
+      "originalAmount": "920",
+      "discounted": "1200",
+      "productid": 18,
+      "uid": "7",
+      "id": 47
+    },
+    {
+      "Stock": "56",
+      "category": "beverages",
+      "uniqueId": "26",
+      "filterValue": "11",
+      "classData": " p-btn--11 p-btn--13 p-btn--26 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
+      "value": "020",
+      "image": "assets/images/Beverges/bevergePepsiCan.png",
+      "alt": "beverges",
+      "title": "Pepsi",
+      "productName": "Pepsi Can (pack 6)",
+      "quantity": "6 x 50ml",
+      "rating": "4.5",
+      "ratingCount": "121",
+      "reviewCount": "6",
+      "originalAmount": "920",
+      "discounted": "1200",
+      "productid": 26,
+      "uid": "15",
+      "id": 48
+    },
+    {
+      "Stock": "In Stock",
+      "category": "beverages",
+      "uniqueId": "19",
+      "filterValue": "10",
+      "classData": " p-btn--10 p-btn--13 p-btn--27 p-btn--29 p-btn--30 p-btn--31",
+      "value": "010",
+      "image": "assets/images/Beverges/bevergeMaaza.png",
+      "alt": "beverges",
+      "title": "Mango Drink",
+      "productName": "Maaza Mango Drink",
+      "quantity": "500ml",
+      "rating": "3.9",
+      "ratingCount": "11,736",
+      "reviewCount": "6,690",
+      "originalAmount": "33",
+      "discounted": "40",
+      "productid": 19,
+      "uid": "15",
+      "id": 50
     }
   ],
   "orders": []

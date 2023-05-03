@@ -18,6 +18,8 @@ import { UsersComponent } from './admin/users/users.component';
 import { AuthUserGuard } from './auth-user.guard';
 import { AddProductsComponent } from './admin/add-products/add-products.component';
 import { AuthAdminGuard } from './admin/auth-admin.guard';
+import { CategoryComponent } from 'src/category/category.component';
+import { CategoryDataComponent } from './admin/categoryData/categoryData.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,7 @@ const routes: Routes = [
     { path: 'manageProducts', component: ManageProductsComponent },
     { path: 'manageOrders', component: ManageOrdersComponent },
     { path: 'addProducts', component: AddProductsComponent },
+    { path: 'category', component: CategoryDataComponent },
     { path: 'addProducts/:id', component: AddProductsComponent }
   ]},
 

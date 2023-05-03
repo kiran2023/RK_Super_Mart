@@ -1,5 +1,7 @@
 /* ------------------------MAIN DATA--------------------- */
-
+body{
+  height: 100%;
+}
 section {
   padding: 0rem;
 }
@@ -13,9 +15,9 @@ h1 {
 #main-section {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100%;
+  padding:8rem 0 2rem 0;
   margin: 0 10rem 0 10rem;
-  padding-top: 6rem;
 }
 
 #main-heading,

@@ -24,7 +24,6 @@ export class ProductsComponent implements OnInit {
   updatedProducts: product[] = [];
 
   categoryData: string | undefined | null;
-  breadCrumbs: string | undefined | null;
 
   constructor(private data: ProductsDataService, private cartService: CartService, private titleService: Title, private activeRoute: ActivatedRoute) {
     this.activeRoute.paramMap.subscribe((urlData) => {

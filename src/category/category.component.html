@@ -17,7 +17,8 @@
                 <h2>Filters</h2>
                 <hr>
                 <h5> <b class="findProduct"> Categories </b></h5>
-                <a *ngIf="category!=''"  id="categoryBackButton"> <button routerLink="../" class="btn"><i class="fa-solid fa-arrow-left"></i>  Back</button> </a>
+                <a *ngIf="category!=''" id="categoryBackButton"> <button routerLink="../" class="btn"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button> </a>
                 <h3 class="categoryDetails">
                     <div *ngIf="category=='grocery'||category==''">
                         <a routerLink="/products/grocery" id="1001" class="categoryAvailable">Vegetables and Fruits <i
@@ -58,65 +59,29 @@
                 <hr>
 
                 <div *ngIf="category=='grocery'||category==''" class="brands categoryAvailable" id="1001">
-                    <h5> <b>Grocery Varieties </b></h5>
-                    <div class="clearSection">
-                        <input type="search" id="grocery" class="clearSearch"
-                            onclick="scrollToProduct('1')" placeholder="Search Variety">
-                        <p id="clearFilter" onclick="clearAll()">Clear All</p>
-                    </div>
-                    <ul>
-                        <li> <input type="checkbox" name="Apples" data-btn-num="1" value="1"
-                                data-specific-category-data="1001"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-1">
-                            Apples
-                        </li>
-                        <li> <input type="checkbox" name="Bananas"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-2" data-btn-num="2"
-                                data-specific-category-data="1001" value="2">
-                            Bananas
-                        </li>
-                        <li> <input type="checkbox" name="Sapota"
-                                class="checkbox  check groceryCheck allProductsGrocery data-btn-3" data-btn-num="3"
-                                data-specific-category-data="1001" value="3">
-                            Sapota
-                        </li>
-                        <li> <input type="checkbox" name="Garlic"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-4" data-btn-num="4"
-                                data-specific-category-data="1001" value="4">
-                            Garlic
-                        </li>
-                        <li> <input type="checkbox" name="Green Capsicum"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-5" data-btn-num="5"
-                                data-specific-category-data="1001" value="5">
-                            Green Capsicum </li>
-                        <li> <input type="checkbox" name="Lauki"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-6" data-btn-num="6"
-                                data-specific-category-data="1001" value="6">
-                            Lauki </li>
-                        <li> <input type="checkbox" name="Potato"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-7" data-btn-num="7"
-                                data-specific-category-data="1001" value="7">
-                            Potato
-                        </li>
-                        <li> <input type="checkbox" name="Brinjal Black"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-8" data-btn-num="8"
-                                data-specific-category-data="1001" value="8">
-                            Brinjal Black </li>
-                        <li> <input type="checkbox" name="Cluster Beans"
-                                class="checkbox check groceryCheck allProductsGrocery data-btn-9" data-btn-num="9"
-                                data-specific-category-data="1001" value="9">
-                            Cluster Beans </li>
-                        <li> <input type="checkbox" name="" class="checkbox AllCheckBox groceryCheck data-btn-14"
-                                data-specific-category-data="1001" data-btn-num="14" value="14" id="allProductsGrocery">
-                            All </li>
-                    </ul>
+                    <ng-container *ngFor="let category of categoryDisplay">
+                        <h5> <b> {{category.categoryType}} </b></h5>
+                        <div class="clearSection">
+                            <input type="search" id="grocery" class="clearSearch" placeholder="Search Variety">
+                            <p id="clearFilter">Clear All</p>
+                        </div>
+                        <ul>
+                            <li *ngFor="let categoryData of category.category, index as i">
+                                <input type="checkbox" name={{categoryData}}
+                                    attr.data-btn-num={{category?.categoryUniqueValue[i]}}
+                                    value={{category?.categoryUniqueValue[i]}} class={{category?.categoryClass[i]}}>
+                                {{categoryData}}
+                            </li>
+                        </ul>
+                        <hr>
+                    </ng-container>
                     <hr>
                 </div>
 
                 <div *ngIf="category=='beverages'||category==''" class="brands categoryAvailable" id="1002">
                     <h5><b>Beverages Brands</b></h5>
-                    <input type="search" class="clearSearch" name="search" id="beverges"
-                         onclick="scrollToProduct('2')" placeholder="Search Brand">
+                    <input type="search" class="clearSearch" name="search" id="beverges" onclick="scrollToProduct('2')"
+                        placeholder="Search Brand">
                     <ul>
                         <li> <input type="checkbox" class="checkbox check bevergeCheck allProductsBeverge data-btn-10"
                                 name="Soft Drinks" data-btn-num="10" data-specific-category-data="1002" value="10">
@@ -135,8 +100,8 @@
                 </div>
                 <div *ngIf="category=='household'||category==''" class="brands categoryAvailable" id="1003">
                     <h5> <b class="findProduct"> Household Products Brands </b></h5>
-                    <input type="search" class="clearSearch" name="search" id="household"
-                        onclick="scrollToProduct('3')" placeholder="Search Brand">
+                    <input type="search" class="clearSearch" name="search" id="household" onclick="scrollToProduct('3')"
+                        placeholder="Search Brand">
                     <div class="bevergesBrands">
                         <ul>
                             <li> <input type="checkbox"

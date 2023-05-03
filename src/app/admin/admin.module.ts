@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProductsComponent } from './add-products/add-products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryDataComponent } from './categoryData/categoryData.component';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ManageProductsComponent,
     ManageOrdersComponent,
     AdminComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    CategoryDataComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UsersComponent,
     ManageProductsComponent,
     ManageOrdersComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    CategoryDataComponent
   ]
 })
 export class AdminModule { }

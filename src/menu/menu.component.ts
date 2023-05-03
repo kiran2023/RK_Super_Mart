@@ -111,15 +111,16 @@ export class MenuComponent implements OnInit {
     for (let user of this.users) {
       if (usermail.value === user.mail && userpassword.value === user.password) {
         invalidLogin.innerHTML = "";
-        this.loggedin = true;
-        this.dataService.userLogin = this.loggedin;
         this.loggedinUser = user;
         this.dataService.activeUser = this.loggedinUser;
+        this.loggedin = true;
+        this.dataService.userLogin = this.loggedin;
         sessionStorage.setItem('userLoggedIn', 'true')
         sessionStorage.setItem('userName', user.username);
         sessionStorage.setItem('userMail', user.mail);
         sessionStorage.setItem('userId', user.id);
         this.cartService.getUsersCartList(sessionStorage.getItem('userId'));
+        this.cartService.getProducts().subscribe(product => this.cartDataCount = product.length);
         this.closePanel();
         alert("Login Successful");
         this.loginStatus.emit(this.loggedin);
