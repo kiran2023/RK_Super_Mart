@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsDataService } from 'src/productsData.service';
 import { product } from './product';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class AdminProductsService {
 
   getProductDataUrl = 'http://localhost:3000/Productdata';
   getCategoryUrl = 'http://localhost:3000/category';
+
   getCategoryTypesUrl = 'http://localhost:3000/categoryTypes';
   getRegisteredUsersUrl = 'http://localhost:3000/registeredUser';
 
@@ -42,12 +44,20 @@ export class AdminProductsService {
     return this.http.post(`${this.getProductDataUrl}`, productData);
   }
 
+  categoryTypes(categoryData:any){    
+    return this.http.post(`${this.getCategoryTypesUrl}`, categoryData);
+  }
+
+  categoryTypesCount(){
+    return this.http.get(`${this.getCategoryTypesUrl}`);
+  }
+
   addCategory(categoryData: any) {
     return this.http.post(`${this.getCategoryUrl}`, categoryData);
   }
 
-  updateCategory(categoryData: any, categoryID:any) {
-    return this.http.put(`${this.getCategoryUrl}/${categoryID}`, categoryData);
+  updateCategory(categoryData: any,key:any,id:any) {
+    return this.http.patch(`${this.getCategoryUrl}/${id}`, {[key]:categoryData} );
   }
 
   getCategory() {
@@ -75,5 +85,22 @@ export class AdminProductsService {
     this.userAuth.adminLogin = false;
     sessionStorage.clear();
     this.route.navigate(['/', 'home']);
+  }
+  
+
+  addCategoryTest(categoryID:any, categoryKey1:any,categoryKey2:any,categoryKey3:any, categoryData1:any,categoryData2:any,categoryData3:any){
+    
+    return this.http.get(`${this.getCategoryUrl}/${categoryID}`).pipe(
+      switchMap((result:any) =>{
+        
+        let updatedCategory1 = result[categoryKey1].concat(categoryData1);
+        let updatedCategory2 = result[categoryKey2].concat(categoryData2);
+        let updatedCategory3 = result[categoryKey3].concat(categoryData3);
+
+        const updatedValue = {[categoryKey1]:updatedCategory1,[categoryKey2]:updatedCategory2,[categoryKey3]:updatedCategory3};
+
+        return this.http.patch(`${this.getCategoryUrl}/${categoryID}`, updatedValue );
+      } )
+    )
   }
 }

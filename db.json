@@ -773,125 +773,11 @@
       "id": 36
     }
   ],
-  "categoryTypes": [],
+  "categoryTypes": [
+   
+  ],
   "category": [
-    {
-      "categoryType": "k",
-      "category": [
-        "k"
-      ],
-      "categoryClass": [
-        "k"
-      ],
-      "categoryUniqueValue": [
-        "k"
-      ],
-      "id": 1
-    },
-    {
-      "categoryType": "ku",
-      "category": [
-        "i"
-      ],
-      "categoryClass": [
-        "i"
-      ],
-      "categoryUniqueValue": [
-        "i"
-      ],
-      "id": 2
-    },
-    {
-      "categoryType": "o",
-      "category": [
-        "k"
-      ],
-      "categoryClass": [
-        "k"
-      ],
-      "categoryUniqueValue": [
-        "o"
-      ],
-      "id": 3
-    },
-    {
-      "categoryType": "ok",
-      "category": [
-        "k"
-      ],
-      "categoryClass": [
-        "k"
-      ],
-      "categoryUniqueValue": [
-        "o"
-      ],
-      "id": 4
-    },
-    {
-      "categoryType": "kl",
-      "category": [
-        "k"
-      ],
-      "categoryClass": [
-        "k"
-      ],
-      "categoryUniqueValue": [
-        "o"
-      ],
-      "id": 5
-    },
-    {
-      "categoryType": "i",
-      "category": [
-        "ii"
-      ],
-      "categoryClass": [
-        "i"
-      ],
-      "categoryUniqueValue": [
-        "i"
-      ],
-      "id": 6
-    },
-    {
-      "categoryType": "ioplpll",
-      "category": [
-        "ii"
-      ],
-      "categoryClass": [
-        "i"
-      ],
-      "categoryUniqueValue": [
-        "i"
-      ],
-      "id": 7
-    },
-    {
-      "categoryType": "trrr",
-      "category": [
-        "t"
-      ],
-      "categoryClass": [
-        "t"
-      ],
-      "categoryUniqueValue": [
-        "t"
-      ],
-      "id": 8
-    },
-    {
-      "categoryType": "r",
-      "category": [
-        "r"
-      ],
-      "categoryClass": [
-        "r"
-      ],
-      "categoryUniqueValue": [
-        "r"
-      ],
-      "id": 9
-    }
+    
   ],
   "cartData": [
     {
@@ -1018,27 +904,6 @@
       "productid": 11,
       "uid": "8",
       "id": 27
-    },
-    {
-      "Stock": "18",
-      "category": "grocery",
-      "uniqueId": "5",
-      "filterValue": "2",
-      "classData": " p-btn--2 p-btn--14 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
-      "value": "010",
-      "image": "assets/images/VeggetablesFruits/bananaNendran.png",
-      "alt": "Fresh Groceries",
-      "title": "Banana Nendran",
-      "productName": "Banana Nendran 4 pcs (Box)",
-      "quantity": "800g - 1200g (Approx)",
-      "rating": "4.7",
-      "ratingCount": "848",
-      "reviewCount": "93",
-      "originalAmount": "129",
-      "discounted": "149",
-      "productid": "5",
-      "uid": "8",
-      "id": 28
     },
     {
       "Stock": "91",
@@ -1187,27 +1052,6 @@
       "id": 40
     },
     {
-      "Stock": "46",
-      "category": "beverages",
-      "uniqueId": "15",
-      "filterValue": "10",
-      "classData": "p-btn--13 p-btn--10 p-btn--26 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
-      "value": "020",
-      "image": "assets/images/Beverges/bevergeLimca.png",
-      "alt": "beverges",
-      "title": "Limca",
-      "productName": "Limca Lime n Lemoni",
-      "quantity": "2L",
-      "rating": "4.3",
-      "ratingCount": "1,243",
-      "reviewCount": "2,905",
-      "originalAmount": "68",
-      "discounted": "95",
-      "productid": 15,
-      "uid": "1",
-      "id": 41
-    },
-    {
       "Stock": "15",
       "category": "grocery",
       "uniqueId": "2",
@@ -1311,6 +1155,27 @@
       "productid": 19,
       "uid": "15",
       "id": 50
+    },
+    {
+      "Stock": "15",
+      "category": "grocery",
+      "uniqueId": "2",
+      "filterValue": "1",
+      "classData": "p-btn--1 p-btn--14 p-btn--27 p-btn--28 p-btn--30 p-btn--31",
+      "value": "010",
+      "image": "assets/images/VeggetablesFruits/appleGranny.png",
+      "alt": "Fresh Groceries",
+      "title": "Apple Granny",
+      "productName": "Apple Granny Smith 4 pcs",
+      "quantity": "450g - 600g (Approx)",
+      "rating": "4.4",
+      "ratingCount": "976",
+      "reviewCount": "256",
+      "originalAmount": "249",
+      "discounted": "299",
+      "productid": 2,
+      "uid": "8",
+      "id": 51
     }
   ],
   "orders": []

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminProductsService } from '../adminProducts.service';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-categoryData',
@@ -27,6 +26,7 @@ export class CategoryDataComponent implements OnInit {
     this.adminService.getCategory().subscribe((data) => {
       this.categoryDisplay = data;
     });
+    // this.adminService.addCategoryTest().subscribe();
   }
 
   addProduct(formData: any) {
@@ -41,8 +41,6 @@ export class CategoryDataComponent implements OnInit {
           if (categoryDatas.categoryType == formData.categoryType) {
             categoryExist = true;
             existingCategoryId = categoryDatas.id;
-            this.existingCategoryData = categoryDatas;
-            this.categoryArray.push(this.existingCategoryData);
           }
         });
         let categoryValues = {
@@ -52,26 +50,26 @@ export class CategoryDataComponent implements OnInit {
           categoryUniqueValue: formData.categoryUniqueValue.split(',')
         }
         this.dataUpdating(categoryExist, categoryValues, existingCategoryId);
-        this.categoryArray.push(categoryValues);
-        console.warn(this.categoryArray); 
       });
     } 
   }
   dataUpdating(categoryExist: boolean, categoryData: any, existingCategoryId: number | string | undefined) {
     if (categoryExist == false) {
+      var categoryTypeDataValue:any = { categoryTypeData: categoryData.categoryType  }
+      
       this.adminService.addCategory(categoryData).subscribe((response) => {
         if (response) {
+          alert(categoryData.categoryType);
+          this.adminService.addCategoryTypes(categoryTypeDataValue).subscribe();
           this.categoryStatusMessage = "Category Added Successfully";
         }
         setTimeout(() => this.categoryStatusMessage = undefined, 3000);
       });
     }
     if (categoryExist) {
-
-      this.adminService.updateCategory(categoryData, existingCategoryId).subscribe((response) => {
-        console.warn(categoryData);
+      this.adminService.addCategoryTest(existingCategoryId, "category","categoryClass","categoryUniqueValue", categoryData.category, categoryData.categoryClass, categoryData.categoryUniqueValue).subscribe((response) => {
         if (response) {
-          this.categoryStatusMessage = "Category Added Successfully";
+          console.warn(response);
         }
         setTimeout(() => this.categoryStatusMessage = undefined, 3000);
       });
