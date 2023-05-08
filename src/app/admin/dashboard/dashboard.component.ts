@@ -8,6 +8,8 @@ import { product } from '../product';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  totalProductAmount:number=0;
+  salesAmount:number=0;
   allUser: any = "";
   allProducts: product[] = [];
   categoryCount:any="";
@@ -16,6 +18,9 @@ export class DashboardComponent implements OnInit {
     this.user.getUsers().subscribe(user => this.allUser = user);
     this.user.getProducts().subscribe(product => this.allProducts = product as product[]);
     this.user.categoryTypesCount().subscribe( (category) => this.categoryCount = category);
+    this.user.productTotalAmount().subscribe((totalAmount:number) => {
+      this.totalProductAmount = totalAmount;
+    });
   }
 
   ngOnInit() {}

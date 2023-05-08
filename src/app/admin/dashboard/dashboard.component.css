@@ -6,6 +6,10 @@
     grid-template-columns: 10% 80%;
 }
 
+.grid-dashboard-two-columns{
+    grid-template-columns: 1fr 1fr;
+}
+
 .container {
     max-width: 140rem;
     padding: 0 4rem;

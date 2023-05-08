@@ -47,7 +47,7 @@ export class ProductDescriptionComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   loadFeaturedProducts() {
@@ -83,11 +83,18 @@ export class ProductDescriptionComponent implements OnInit {
 
   addtoCartData() {
     if (this.productDataService.userLogin) {
+      
       let uid = sessionStorage.getItem('userId');
       let dataToCart: cart = {
-        ...this.finalProduct,
+        productName: this.finalProduct.productName,
+        title: this.finalProduct.title,
+        image: this.finalProduct.image,
+        productUniqueId: this.finalProduct.uniqueId,
+        quantity: this.finalProduct.quantity,
+        originalAmount: this.finalProduct.originalAmount,
         productid: this.finalProduct.id,
         uid,
+        id: undefined
       }
       delete dataToCart.id;
 

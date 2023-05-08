@@ -23,6 +23,7 @@ export interface product {
 export interface cart {
     image: any;
     productName: any;
+    productUniqueId:any;
     title:any;
     quantity: any;
     originalAmount: any;
@@ -32,14 +33,10 @@ export interface cart {
 }
 
 export interface order {
-    customerName: string;
-    customerMail: string;
-    customerMobile: number;
-    customerState: string;
-    customerCity: string;
-    customerPincode: number;
-    customerAddress: string;
-    totalAmount: number;
-    userId: string;
-    id: number;
+    image: any;
+    productName: any;
+    quantity: any;
+    originalAmount: any;
+    uid: any;
+    productid:number;
 }

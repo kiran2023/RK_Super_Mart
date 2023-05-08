@@ -17,30 +17,30 @@
         <hr>
         <div class="orderDescriptionData order-grid order-grid-four-column">
           <div class="productImageData">
-            <img src="" alt="">
+            <img src="{{orderData.image}}" alt="">
           </div>
           <div class="productDetails">
-            <p id="productName">Aquaguard SkyLand 18 Ltr</p>
+            <p id="productName">{{ orderData.productName }}</p>
             <div class="productDetailsData order-grid order-grid-two-column">
-              <p id="productQuantity"> <b>Quantity : </b> 1</p>
-              <p id="productPrice"> <b> Price : </b> 29,999 </p>
+              <p id="productQuantity"> <b>Quantity : </b>{{ orderData.quantity }}</p>
+              <p id="productPrice"> <b> Price : </b> {{ orderData.originalAmount }} </p>
             </div>
           </div>
           <div class="orderStatus"> <b> Status </b>
             <p>Processing</p>
           </div>
           <div class="deliveryExcepted"> <b> Delivery Excepted by</b> 28 Feb 2022</div>
-          <div class="total"> <b> Total </b> {{orderData.totalAmount}}</div>
+          <div class="total"> <b> Total </b> {{orderData.originalAmount}}</div>
         </div>
         <hr>
       </ng-container>
-        <div class="orderStatusData">
+        <!-- <div class="orderStatusData">
           <button class="btn" id="cancelOrder">Cancel Order</button>
-          <!-- <p id="OrderId"> <b> Order Id: </b> 6010</p> -->
+          <p id="OrderId"> <b> Order Id: </b> {{orderData.id}} </p>
           <p id="payment"> <b>Cash On Delivery</b> </p>
-          <p id="OrderStatus"> <b> Sub Total: </b> {{orderTotalAmount|currency:'INR'}} </p>
-        </div>
-        <hr>
+          <p id="OrderStatus"> <b> Sub Total: </b> {{orderData.originalAmount|currency:'INR'}} </p>
+        </div> -->
+        <!-- <hr> -->
     </div>
   </div>
 </div>

@@ -36,6 +36,7 @@ export class CartComponent implements OnInit, AfterViewChecked {
       this.cartService.clearCart(product.id);
     })
   }
+  
   ngAfterViewChecked() {
     if (!sessionStorage.getItem('userLoggedIn')) {
       this.route.navigate(['home']);

@@ -19,16 +19,24 @@ export class AddProductsComponent implements OnInit {
   allProductData: any = "";
   editProduct: product | undefined;
 
-  editProductURLId:string|undefined|null="";
+  editProductURLId: string | undefined | null = "";
 
   editProductEnable: boolean = false;
   idData: undefined | string | null;
 
   filterValue = ['010', '020', '030', '040', '050'];
-  category = ['grocery', 'beverages', 'household'];
+  category:any = [];
 
-  constructor(private productService: AdminProductsService, private formBuilder: FormBuilder, private activateUrl: ActivatedRoute) { }
-  
+  constructor(private productService: AdminProductsService, private formBuilder: FormBuilder, private activateUrl: ActivatedRoute) {
+    this.productService.categoryTypesCount().subscribe((category: any) => {
+      category.forEach((category:any) => {
+        console.warn((category.categoryTypeData));
+        
+        this.category.push(category.categoryTypeData);
+      })
+    })
+  }
+
   ngOnInit() {
     this.addProductForm = this.formBuilder.group({
       Stock: [, Validators.required],
@@ -82,7 +90,7 @@ export class AddProductsComponent implements OnInit {
 
   addProduct(formData: product) {
 
-    this.addProductForm.invalid ? this.addProductMessage = 'Fill all the fields' :  this.addProductMessage =  undefined;
+    this.addProductForm.invalid ? this.addProductMessage = 'Fill all the fields' : this.addProductMessage = undefined;
 
     if (this.addProductForm.valid) {
       this.productService.addProduct(formData).subscribe((response) => {
@@ -94,10 +102,10 @@ export class AddProductsComponent implements OnInit {
     }
   }
 
-  updateProduct(productData:product){
-    this.addProductForm.invalid ? this.addProductMessage = 'Fill all the fields' :  this.addProductMessage =  undefined;
+  updateProduct(productData: product) {
+    this.addProductForm.invalid ? this.addProductMessage = 'Fill all the fields' : this.addProductMessage = undefined;
     if (this.addProductForm.valid) {
-      this.productService.updateProductData(productData,this.editProductURLId).subscribe((response) => {
+      this.productService.updateProductData(productData, this.editProductURLId).subscribe((response) => {
         if (response) {
           this.addProductMessage = "Product Updated Successfully";
         }

@@ -10,13 +10,13 @@ import { map, switchMap, tap } from 'rxjs/operators';
 })
 export class AdminProductsService {
 
-  categoryCount:number=0;
+  categoryCount: number = 0;
 
-  adminName:any="";
+  adminName: any = "";
 
   admin: boolean = false;
-  editProductData:any = "";
-  editProductID:any;
+  editProductData: any = "";
+  editProductID: any;
 
   getProductDataUrl = 'http://localhost:3000/Productdata';
   getCategoryUrl = 'http://localhost:3000/category';
@@ -32,6 +32,18 @@ export class AdminProductsService {
     return this.http.get(`${this.getProductDataUrl}`);
   }
 
+  productTotalAmount() {
+    let productTotalAmount: any = 0
+    return this.http.get(`${this.getProductDataUrl}`).pipe(
+      map((product: any) => {
+        product.forEach((product: any) => {
+          productTotalAmount += parseInt(product.originalAmount);
+        });
+        return productTotalAmount.toLocaleString('en');
+      })
+    )
+  }
+
   getUsers() {
     return this.http.get(`${this.getRegisteredUsersUrl}`);
   }
@@ -44,11 +56,11 @@ export class AdminProductsService {
     return this.http.post(`${this.getProductDataUrl}`, productData);
   }
 
-  categoryTypes(categoryData:any){    
+  categoryTypes(categoryData: any) {
     return this.http.post(`${this.getCategoryTypesUrl}`, categoryData);
   }
 
-  categoryTypesCount(){
+  categoryTypesCount() {
     return this.http.get(`${this.getCategoryTypesUrl}`);
   }
 
@@ -56,23 +68,23 @@ export class AdminProductsService {
     return this.http.post(`${this.getCategoryUrl}`, categoryData);
   }
 
-  updateCategory(categoryData: any,key:any,id:any) {
-    return this.http.patch(`${this.getCategoryUrl}/${id}`, {[key]:categoryData} );
+  updateCategory(categoryData: any, key: any, id: any) {
+    return this.http.patch(`${this.getCategoryUrl}/${id}`, { [key]: categoryData });
   }
 
   getCategory() {
     return this.http.get(`${this.getCategoryUrl}`);
   }
 
-  addCategoryTypes(category:string){
-    return this.http.post(`${this.getCategoryTypesUrl}`,category); 
+  addCategoryTypes(category: string) {
+    return this.http.post(`${this.getCategoryTypesUrl}`, category);
   }
 
-  editProduct(productId:string|undefined|null){
+  editProduct(productId: string | undefined | null) {
     return this.http.get<product>(`${this.getProductDataUrl}/${productId}`);
   }
 
-  updateProductData(product:product, productID:string|undefined|null){
+  updateProductData(product: product, productID: string | undefined | null) {
     return this.http.put<product>(`${this.getProductDataUrl}/${productID}`, product);
   }
 
@@ -86,21 +98,20 @@ export class AdminProductsService {
     sessionStorage.clear();
     this.route.navigate(['/', 'home']);
   }
-  
 
-  addCategoryTest(categoryID:any, categoryKey1:any,categoryKey2:any,categoryKey3:any, categoryData1:any,categoryData2:any,categoryData3:any){
-    
+  addCategoryTest(categoryID: any, categoryKey1: any, categoryKey2: any, categoryKey3: any, categoryData1: any, categoryData2: any, categoryData3: any) {
+
     return this.http.get(`${this.getCategoryUrl}/${categoryID}`).pipe(
-      switchMap((result:any) =>{
-        
+      switchMap((result: any) => {
+
         let updatedCategory1 = result[categoryKey1].concat(categoryData1);
         let updatedCategory2 = result[categoryKey2].concat(categoryData2);
         let updatedCategory3 = result[categoryKey3].concat(categoryData3);
 
-        const updatedValue = {[categoryKey1]:updatedCategory1,[categoryKey2]:updatedCategory2,[categoryKey3]:updatedCategory3};
+        const updatedValue = { [categoryKey1]: updatedCategory1, [categoryKey2]: updatedCategory2, [categoryKey3]: updatedCategory3 };
 
-        return this.http.patch(`${this.getCategoryUrl}/${categoryID}`, updatedValue );
-      } )
+        return this.http.patch(`${this.getCategoryUrl}/${categoryID}`, updatedValue);
+      })
     )
   }
 }

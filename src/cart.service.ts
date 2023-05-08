@@ -84,7 +84,7 @@ export class CartService {
     return this.http.post(`${this.orderUrl}`, orderData)
   }
 
-  ordersData(){
-    return this.http.get<order[]>(`${this.ordersDataUrl}${this.userid}`)
+  ordersData(userid:any){
+    return this.http.get<order[]>(`${this.ordersDataUrl}${userid}`)
   }
 }

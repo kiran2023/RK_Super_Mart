@@ -14,9 +14,8 @@ import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 export class ManageProductsComponent implements OnInit {
 
   allProducts: product[] = [];
-  categoryCount:number = 0;
+  totalProductAmount:number=0;
   category:any = [];
-  categoryListData:number =0;
   editIcon = faEdit
   deleteIcon = faTrash;
 
@@ -25,17 +24,14 @@ export class ManageProductsComponent implements OnInit {
   loadProductData() {
     this.productData.getProducts().subscribe(product => {
       this.allProducts = product as product[];
-
-      this.allProducts.filter((productData) => {
-        this.category.push(productData.category);
-      });
-
-      this.categoryListData = [...new Set(this.category)].length;
-    })
+      this.productData.categoryTypesCount().subscribe( (category:any) => this.category = category);
+    });
+    this.productData.productTotalAmount().subscribe((totalAmount:number) => {
+      this.totalProductAmount = totalAmount;
+    });
   }
 
   ngOnInit(): void {
-    // this.categoryCount = this.productData.categoryCount;
     this.loadProductData();
   }
 

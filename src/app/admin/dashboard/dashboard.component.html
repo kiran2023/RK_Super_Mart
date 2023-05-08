@@ -7,9 +7,15 @@
 
                 <h2>Dashboard</h2>
 
-                <div class="totalAmount">
-                    <h3>Total Amount</h3>
-                    <p></p>
+                <div class="totalAmount grid grid-dashboard-two-columns">
+                    <div class="">
+                        <h3>Total Sales Amount</h3>
+                        <p> {{totalProductAmount}} </p>
+                    </div>
+                    <div class="">
+                        <h3>Total Product Amount</h3>
+                        <p> {{totalProductAmount}} </p>
+                    </div>
                 </div>
 
                 <div class="grid dashboardOverview-three-column dashboardHistory">
@@ -17,7 +23,7 @@
                         <p>Products</p>
                         <p>{{allProducts.length }}</p>
                     </div>
-                    <div routerLink="/admin/Category" class="totalProducts">
+                    <div routerLink="/admin/category" class="totalProducts">
                         <p>Category</p>
                         <p>{{categoryCount.length }}</p>
                     </div>

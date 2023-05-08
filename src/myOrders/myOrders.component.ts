@@ -17,9 +17,11 @@ export class MyOrdersComponent implements OnInit {
   constructor(private cartService:CartService) { }
 
   ngOnInit() {
-    // this.cartService.ordersData().subscribe((data)=>{
-    //   this.orderData = data;
-    // });
-    this.orderData = this.cartService.getUsersCartList(this.userid);
+    this.orderData = this.cartService.ordersData(this.userid).subscribe((data:any)=>{
+      let orderDetails = data;
+      orderDetails.forEach((orderDatas:any) => {
+          this.orderData = orderDatas.cartItems;          
+      });
+    });
   }
 }
