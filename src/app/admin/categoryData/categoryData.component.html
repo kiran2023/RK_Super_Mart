@@ -1,4 +1,58 @@
-<section>
+<div class="grid Data-grid-two-columns">
+  <app-navbar></app-navbar>
+
+  <div class="container">
+    <section class="categoryDiv">
+
+      <div>
+        <h2>Product Details</h2>
+
+        <div class="dashboardOverview">
+
+          <div class="grid dashboardHistory">
+            <div class="totalProducts">
+              <p>Category</p>
+              <p></p>
+            </div>
+            <div class="totalUsers">
+              <p>Add category</p>
+              <p></p>
+            </div>
+          </div>
+
+        </div>
+
+        <table class="userTable">
+          <thead>
+            <tr>
+              <th>Category ID</th>
+              <th>Category Type</th>
+              <th>Category Class</th>
+              <th>Category Unique Value</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+
+          <tbody id="productDatas">
+            <ng-container *ngFor="let category of categoryDisplay">
+              <tr *ngFor="let cat of category.category; index as i">
+                <td>{{ category.id }}</td>
+                <td>{{category.categoryType}}</td>
+                <td>{{cat}}</td>
+                <td>{{category.categoryUniqueValue[i]}}</td>
+                <td> <i class="fa-solid fa-pen-to-square"></i></td>
+                <td><i class="fa-solid fa-trash"></i> </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- <section>
   <h2 class="common-heading"> Add Category </h2>
 
   <div class="container grid-two-columns">
@@ -35,4 +89,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

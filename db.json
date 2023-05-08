@@ -794,6 +794,10 @@
     {
       "categoryTypeData": "demo121",
       "id": 4
+    },
+    {
+      "categoryTypeData": "de",
+      "id": 5
     }
   ],
   "category": [
@@ -863,6 +867,22 @@
         "112"
       ],
       "id": 4
+    },
+    {
+      "categoryType": "de",
+      "category": [
+        "i",
+        "u"
+      ],
+      "categoryClass": [
+        "i",
+        "u"
+      ],
+      "categoryUniqueValue": [
+        "i",
+        "u"
+      ],
+      "id": 5
     }
   ],
   "cartData": [

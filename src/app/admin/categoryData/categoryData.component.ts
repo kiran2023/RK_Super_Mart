@@ -26,8 +26,7 @@ export class CategoryDataComponent implements OnInit {
     });
     this.adminService.getCategory().subscribe((data) => {
       this.categoryDisplay = data;
-    });
-    // this.adminService.addCategoryTest().subscribe();
+    });            
   }
 
   addProduct(formData: any) {
